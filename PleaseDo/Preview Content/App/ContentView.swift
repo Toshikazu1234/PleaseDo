@@ -10,18 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            TabView {
-                ListView(title: "To Do")
-                
-                ListView(title: "In Progress")
-                
-                ListView(title: "Done")
-            }
-            .tabViewStyle(.page)
-            .background {
+            ZStack {
                 Color.background
+                    .ignoresSafeArea()
+                
+                TabView {
+                    ListView(title: "To Do")
+                    
+                    ListView(title: "In Progress")
+                    
+                    ListView(title: "Done")
+                }
+                .tabViewStyle(.page)
             }
-            .ignoresSafeArea()
             .toolbar {
                 Button {
                     print("Navigate to NewItemView")
