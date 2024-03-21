@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
+    @Binding var item: Item
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            
+        }
     }
 }
 
 #Preview {
-    ItemDetailsView()
+    ItemDetailsView(item: .constant(Item(id: "abc123", title: "Take A Break", description: "Make sure to take a break and rest your eyes", startDate: 1711043190, completedDate: nil, status: .todo, priority: .medium)))
 }
