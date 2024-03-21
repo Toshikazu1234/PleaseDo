@@ -11,23 +11,29 @@ struct ContentView: View {
     @State private var vm = ListVM()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $vm.path) {
             ZStack {
                 Color.background
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: "To Do", items: $vm.todoItems)
+                    ListView(title: "To Do", items: $vm.todoItems) {
+                        vm.path.append(.details)
+                    }
                     
-                    ListView(title: "In Progress", items: $vm.inProgressItems)
+                    ListView(title: "In Progress", items: $vm.inProgressItems) {
+                        vm.path.append(.details)
+                    }
                     
-                    ListView(title: "Done", items: $vm.doneItems)
+                    ListView(title: "Done", items: $vm.doneItems) {
+                        vm.path.append(.details)
+                    }
                 }
                 .tabViewStyle(.page)
             }
             .toolbar {
                 Button {
-                    print("Navigate to NewItemView")
+                    vm.path.append(.newItem)
                 } label: {
                     Image(systemName: "plus")
                 }
