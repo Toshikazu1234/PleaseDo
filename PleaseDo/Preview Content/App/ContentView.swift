@@ -22,6 +22,13 @@ struct ContentView: View {
                 Color.background
             }
             .ignoresSafeArea()
+            .toolbar {
+                Button {
+                    print("Navigate to NewItemView")
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
         }
     }
 }
