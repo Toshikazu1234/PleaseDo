@@ -16,6 +16,7 @@
 		50EA6D702BAC9D4D00BFD5CF /* PleaseDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D6F2BAC9D4D00BFD5CF /* PleaseDoUITestsLaunchTests.swift */; };
 		50EA6D812BAC9E4A00BFD5CF /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D802BAC9E4A00BFD5CF /* ListView.swift */; };
 		50EA6D832BACA16300BFD5CF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D822BACA16300BFD5CF /* Extensions.swift */; };
+		50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D842BACA6EC00BFD5CF /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		50EA6D6F2BAC9D4D00BFD5CF /* PleaseDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		50EA6D802BAC9E4A00BFD5CF /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		50EA6D822BACA16300BFD5CF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		50EA6D842BACA6EC00BFD5CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		50EA6D7E2BAC9E2000BFD5CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				50EA6D842BACA6EC00BFD5CF /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
 				50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */,
 				50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */,
 				50EA6D812BAC9E4A00BFD5CF /* ListView.swift in Sources */,
