@@ -40,7 +40,7 @@ enum Priority: String {
         return switch self {
         case .low: "circle"
         case .medium: "triangle"
-        case .high: "exclamationmark.octagon"
+        case .high: "exclamationmark.circle"
         }
     }
 }
