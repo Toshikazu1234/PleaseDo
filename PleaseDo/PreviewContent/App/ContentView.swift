@@ -38,6 +38,14 @@ struct ContentView: View {
                     Image(systemName: "plus")
                 }
             }
+            .navigationDestination(for: ListVM.Path.self) { path in
+                switch path {
+                case .details:
+                    ItemDetailsView()
+                case .newItem:
+                    NewItemView()
+                }
+            }
         }
     }
 }
