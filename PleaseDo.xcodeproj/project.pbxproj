@@ -18,6 +18,7 @@
 		50EA6D832BACA16300BFD5CF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D822BACA16300BFD5CF /* Extensions.swift */; };
 		50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D842BACA6EC00BFD5CF /* Item.swift */; };
 		50EA6D872BACA9B100BFD5CF /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D862BACA9B100BFD5CF /* ListItemView.swift */; };
+		50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D882BACAD2C00BFD5CF /* ListVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		50EA6D822BACA16300BFD5CF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50EA6D842BACA6EC00BFD5CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		50EA6D862BACA9B100BFD5CF /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		50EA6D882BACAD2C00BFD5CF /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		50EA6D7C2BAC9D9800BFD5CF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				50EA6D882BACAD2C00BFD5CF /* ListVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
+				50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */,
 				50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */,
 				50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */,
 				50EA6D872BACA9B100BFD5CF /* ListItemView.swift in Sources */,
