@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var vm = ListVM()
+    
     var body: some View {
         NavigationStack {
             ZStack {
