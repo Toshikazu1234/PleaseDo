@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Item: Identifiable, Equatable {
+struct Item: Identifiable, Equatable, Hashable {
     let id: String
     var title: String
     var description: String
