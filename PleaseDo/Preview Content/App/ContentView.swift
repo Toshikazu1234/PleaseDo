@@ -17,11 +17,11 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: "To Do")
+                    ListView(title: "To Do", items: $vm.todoItems)
                     
-                    ListView(title: "In Progress")
+                    ListView(title: "In Progress", items: $vm.inProgressItems)
                     
-                    ListView(title: "Done")
+                    ListView(title: "Done", items: $vm.doneItems)
                 }
                 .tabViewStyle(.page)
             }

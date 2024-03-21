@@ -16,11 +16,15 @@ struct ListItemView: View {
             VStack(alignment: .leading, spacing: 3) {
                 Text(item.title)
                     .font(.headline)
+                    .lineLimit(1)
                 
                 Text(item.description)
                     .font(.body)
                     .foregroundStyle(.secondary)
+                    .lineLimit(2)
             }
+            
+            Spacer()
             
             Image(systemName: item.priority.img)
                 .resizable()
@@ -28,7 +32,6 @@ struct ListItemView: View {
                 .foregroundStyle(item.priority.color)
                 .frame(maxHeight: height * 0.45)
         }
-        .padding(.horizontal)
         .frame(maxHeight: height)
     }
 }
