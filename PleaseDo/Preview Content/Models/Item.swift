@@ -29,24 +29,18 @@ enum Priority: String {
     case low, medium, high
     
     var color: Color {
-        switch self {
-        case .low:
-            return .blue
-        case .medium:
-            return .orange
-        case .high:
-            return .red
+        return switch self {
+        case .low: .blue
+        case .medium: .orange
+        case .high: .red
         }
     }
     
     var img: String {
-        switch self {
-        case .low:
-            return "circle"
-        case .medium:
-            return "triangle"
-        case .high:
-            return "exclamationmark.octagon"
+        return switch self {
+        case .low: "circle"
+        case .medium: "triangle"
+        case .high: "exclamationmark.octagon"
         }
     }
 }
