@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             .tabViewStyle(.page)
             .background {
-                Color.gray
+                Color.background
             }
             .ignoresSafeArea()
         }

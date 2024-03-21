@@ -33,6 +33,6 @@ struct ListView: View {
 #Preview {
     ListView(title: "To Do")
         .background {
-            Color.gray
+            Color.background
         }
 }
