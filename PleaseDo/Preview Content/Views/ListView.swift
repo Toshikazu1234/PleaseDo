@@ -31,8 +31,10 @@ struct ListView: View {
 }
 
 #Preview {
-    ListView(title: "To Do")
-        .background {
-            Color.background
-        }
+    ZStack {
+        Color.background
+            .ignoresSafeArea()
+        
+        ListView(title: "To Do")
+    }
 }
