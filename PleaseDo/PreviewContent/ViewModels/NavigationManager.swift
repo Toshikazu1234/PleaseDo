@@ -8,6 +8,11 @@
 import SwiftUI
 import Observation
 
+enum Path: Hashable {
+    case newItem
+    case details(NavItem)
+}
+
 @Observable final class NavigationManager {
     var path = NavigationPath()
     

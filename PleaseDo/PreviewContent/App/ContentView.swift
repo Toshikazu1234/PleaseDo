@@ -29,26 +29,26 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        nav.path.append("NewItem")
+                        nav.path.append(Path.newItem)
                     } label: {
                         Image(systemName: "plus")
                     }
                 }                
             }
-            .navigationDestination(for: NavItem.self) { item in
-                let i = item.index
-                switch item.status {
-                case .todo:
-                    ItemDetailsView(item: $vm.todoItems[i])
-                case .inProgress:
-                    ItemDetailsView(item: $vm.inProgressItems[i])
-                case .done:
-                    ItemDetailsView(item: $vm.doneItems[i])
-                }
-            }
-            .navigationDestination(for: String.self) { str in
-                if str == "NewItem" {
+            .navigationDestination(for: Path.self) { path in
+                switch path {
+                case .newItem:
                     NewItemView()
+                case .details(let item):
+                    let i = item.index
+                    switch item.status {
+                    case .todo:
+                        ItemDetailsView(item: $vm.todoItems[i])
+                    case .inProgress:
+                        ItemDetailsView(item: $vm.inProgressItems[i])
+                    case .done:
+                        ItemDetailsView(item: $vm.doneItems[i])
+                    }
                 }
             }
         }

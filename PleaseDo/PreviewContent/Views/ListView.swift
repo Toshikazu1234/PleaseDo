@@ -30,7 +30,8 @@ struct ListView: View {
                         status: item.status,
                         item: item,
                         index: i)
-                    NavigationLink(value: navItem) {
+                    let path = Path.details(navItem)
+                    NavigationLink(value: path) {
                         ListItemView(item: item, height: 100)
                     }
                 }
