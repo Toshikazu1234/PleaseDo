@@ -19,7 +19,7 @@ struct ContentView: View {
         case .loggedIn:
             HomeView()
         case .loggedOut:
-            Text("Logged out")
+            LoginView(vm: $vm)
         }
     }
 }
