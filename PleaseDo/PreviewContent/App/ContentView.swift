@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var vm = LoginVM()
     
     var body: some View {
-        HomeView()
+        switch vm.loginStatus {
+        case .unknown:
+            Text("Loading")
+        case .loggedIn:
+            HomeView()
+        case .loggedOut:
+            Text("Logged out")
+        }
+        
     }
 }
 

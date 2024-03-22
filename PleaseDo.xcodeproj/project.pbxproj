@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C32BAD38B500CE00D9 /* HomeView.swift */; };
+		50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C52BAD393800CE00D9 /* LoginVM.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
 		50EA6D572BAC9D4C00BFD5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EA6D562BAC9D4C00BFD5CF /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		50B861C32BAD38B500CE00D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		50B861C52BAD393800CE00D9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
 		50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		50EA6D7C2BAC9D9800BFD5CF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				50B861C52BAD393800CE00D9 /* LoginVM.swift */,
 				50EA6D882BACAD2C00BFD5CF /* ListVM.swift */,
 				50EA6D8E2BAD089600BFD5CF /* NavigationManager.swift */,
 			);
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA6D8D2BACBDDC00BFD5CF /* NewItemView.swift in Sources */,
+				50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */,
 				50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */,
 				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
 				50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */,
