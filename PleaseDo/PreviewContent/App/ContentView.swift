@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var vm = ListVM()
     @State private var nav = NavigationManager()
+    @State private var showLogout = false
     
     var body: some View {
         NavigationStack(path: $nav.path) {
@@ -27,7 +28,15 @@ struct ContentView: View {
                 .tabViewStyle(.page)
             }
             .toolbar {
-                ToolbarItem(placement: .primaryAction) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showLogout = true
+                    } label: {
+                        Image(systemName: "person.circle")
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         nav.path.append(Path.newItem)
                     } label: {
@@ -50,6 +59,11 @@ struct ContentView: View {
                         ItemDetailsView(item: $vm.doneItems[i])
                     }
                 }
+            }
+            .alert(isPresented: $showLogout) {
+                Alert(title: Text("Alert"), message: Text("Continue signing out?"), primaryButton: .destructive(Text("Confirm"), action: {
+                    print("Logout user")
+                }), secondaryButton: .cancel())
             }
         }
     }
