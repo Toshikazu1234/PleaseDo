@@ -9,40 +9,45 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var vm = ListVM()
+    @State private var nav = NavigationManager()
     
     var body: some View {
-        NavigationStack(path: $vm.path) {
+        NavigationStack(path: $nav.path) {
             ZStack {
                 Color.background
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: "To Do", items: $vm.todoItems) {
-                        vm.path.append(.details)
-                    }
+                    ListView(status: .todo, items: $vm.todoItems)
                     
-                    ListView(title: "In Progress", items: $vm.inProgressItems) {
-                        vm.path.append(.details)
-                    }
+                    ListView(status: .inProgress, items: $vm.inProgressItems)
                     
-                    ListView(title: "Done", items: $vm.doneItems) {
-                        vm.path.append(.details)
-                    }
+                    ListView(status: .done, items: $vm.doneItems)
                 }
                 .tabViewStyle(.page)
             }
             .toolbar {
-                Button {
-                    vm.path.append(.newItem)
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        nav.path.append("NewItem")
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }                
+            }
+            .navigationDestination(for: NavItem.self) { item in
+                let i = item.index
+                switch item.status {
+                case .todo:
+                    ItemDetailsView(item: $vm.todoItems[i])
+                case .inProgress:
+                    ItemDetailsView(item: $vm.inProgressItems[i])
+                case .done:
+                    ItemDetailsView(item: $vm.doneItems[i])
                 }
             }
-            .navigationDestination(for: ListVM.Path.self) { path in
-                switch path {
-                case .details:
-                    ItemDetailsView()
-                case .newItem:
+            .navigationDestination(for: String.self) { str in
+                if str == "NewItem" {
                     NewItemView()
                 }
             }
