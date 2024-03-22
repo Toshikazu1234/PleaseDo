@@ -12,33 +12,22 @@ struct ListView: View {
     @Binding var items: [Item]
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text(status.rawValue)
-                .font(.title)
-                .frame(maxWidth: .infinity)
-                .border(.white)
-                .foregroundStyle(.white)
-                .background {
-                    Color.orange
-                }
-                .padding(.horizontal)
-            
-            List {
-                ForEach(0..<items.count, id: \.self) { i in
-                    let item = items[i]
-                    let navItem = NavItem(
-                        status: item.status,
-                        item: item,
-                        index: i)
-                    let path = Path.details(navItem)
-                    NavigationLink(value: path) {
-                        ListItemView(item: item, height: 100)
-                    }
+        List {
+            ForEach(0..<items.count, id: \.self) { i in
+                let item = items[i]
+                let navItem = NavItem(
+                    status: item.status,
+                    item: item,
+                    index: i)
+                let path = Path.details(navItem)
+                NavigationLink(value: path) {
+                    ListItemView(item: item, height: 100)
                 }
             }
-            .scrollContentBackground(.hidden)
-            .listStyle(.insetGrouped)
         }
+        .scrollContentBackground(.hidden)
+        .listStyle(.insetGrouped)
+        .navigationTitle(status.rawValue)
     }
 }
 
