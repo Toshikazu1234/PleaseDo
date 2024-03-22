@@ -22,7 +22,9 @@ struct Item: Identifiable, Equatable, Hashable {
 }
 
 enum Status: String {
-    case todo, inProgress, done
+    case todo = "To Do"
+    case inProgress = "In Progress"
+    case done = "Done"
 }
 
 enum Priority: String {
