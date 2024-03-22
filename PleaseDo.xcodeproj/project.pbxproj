@@ -103,6 +103,18 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		50B861CC2BAD3BEB00CE00D9 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				50B861C32BAD38B500CE00D9 /* HomeView.swift */,
+				50EA6D802BAC9E4A00BFD5CF /* ListView.swift */,
+				50EA6D862BACA9B100BFD5CF /* ListItemView.swift */,
+				50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */,
+				50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
 		50EA6D462BAC9D4A00BFD5CF = {
 			isa = PBXGroup;
 			children = (
@@ -175,11 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				50B861CB2BAD3B4700CE00D9 /* Login */,
-				50B861C32BAD38B500CE00D9 /* HomeView.swift */,
-				50EA6D802BAC9E4A00BFD5CF /* ListView.swift */,
-				50EA6D862BACA9B100BFD5CF /* ListItemView.swift */,
-				50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */,
-				50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */,
+				50B861CC2BAD3BEB00CE00D9 /* Todo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
