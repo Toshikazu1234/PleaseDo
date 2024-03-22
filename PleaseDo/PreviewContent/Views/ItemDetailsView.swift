@@ -11,8 +11,51 @@ struct ItemDetailsView: View {
     @Binding var item: Item
     
     var body: some View {
-        List {
-            
+        VStack(spacing: 0) {
+            List {
+                TextField("", text: $item.title, axis: .vertical)
+                    .textFieldStyle(.roundedBorder)
+                
+                TextField("", text: $item.description, axis: .vertical)
+                    .textFieldStyle(.roundedBorder)
+                
+                DisclosureGroup(item.status.rawValue) {
+                    ForEach(0..<Status.allCases.count, id: \.self) { i in
+                        let status = Status.allCases[i]
+                        HStack {
+                            Text(status.rawValue)
+                            
+                            Spacer()
+                            
+                            if item.status == status {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                }
+                .frame(maxHeight: 75)
+                
+                DisclosureGroup(item.priority.rawValue) {
+                    ForEach(0..<Priority.allCases.count, id: \.self) { i in
+                        let priority = Priority.allCases[i]
+                        HStack {
+                            Text(priority.rawValue)
+                            
+                            Spacer()
+                            
+                            if item.priority == priority {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                }
+                .frame(maxHeight: 75)
+            }
+            .scrollContentBackground(.hidden)
+            .listStyle(.insetGrouped)
+        }
+        .toolbar {
+            EditButton()
         }
     }
 }
