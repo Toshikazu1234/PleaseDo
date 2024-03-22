@@ -13,43 +13,65 @@ struct ItemDetailsView: View {
     var body: some View {
         VStack(spacing: 0) {
             List {
-                TextField("", text: $item.title, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Title:")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    
+                    TextField("", text: $item.title, axis: .vertical)
+                }
                 
-                TextField("", text: $item.description, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Description:")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    
+                    TextField("", text: $item.description, axis: .vertical)
+                }
                 
-                DisclosureGroup(item.status.rawValue) {
-                    ForEach(0..<Status.allCases.count, id: \.self) { i in
-                        let status = Status.allCases[i]
-                        HStack {
-                            Text(status.rawValue)
-                            
-                            Spacer()
-                            
-                            if item.status == status {
-                                Image(systemName: "checkmark")
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Status:")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    
+                    DisclosureGroup(item.status.rawValue) {
+                        ForEach(0..<Status.allCases.count, id: \.self) { i in
+                            let status = Status.allCases[i]
+                            HStack {
+                                Text(status.rawValue)
+                                
+                                Spacer()
+                                
+                                if item.status == status {
+                                    Image(systemName: "checkmark")
+                                }
                             }
                         }
                     }
+                    .frame(maxHeight: 75)
                 }
-                .frame(maxHeight: 75)
                 
-                DisclosureGroup(item.priority.rawValue) {
-                    ForEach(0..<Priority.allCases.count, id: \.self) { i in
-                        let priority = Priority.allCases[i]
-                        HStack {
-                            Text(priority.rawValue)
-                            
-                            Spacer()
-                            
-                            if item.priority == priority {
-                                Image(systemName: "checkmark")
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Priority:")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    
+                    DisclosureGroup(item.priority.rawValue) {
+                        ForEach(0..<Priority.allCases.count, id: \.self) { i in
+                            let priority = Priority.allCases[i]
+                            HStack {
+                                Text(priority.rawValue)
+                                
+                                Spacer()
+                                
+                                if item.priority == priority {
+                                    Image(systemName: "checkmark")
+                                }
                             }
                         }
                     }
+                    .frame(maxHeight: 75)
                 }
-                .frame(maxHeight: 75)
             }
             .scrollContentBackground(.hidden)
             .listStyle(.insetGrouped)
