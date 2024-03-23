@@ -34,6 +34,6 @@ struct LoginTitleView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .sizeThatFitsLayout) {
     LoginTitleView()
 }

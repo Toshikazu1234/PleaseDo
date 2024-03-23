@@ -36,6 +36,6 @@ struct LoginButton: View {
     }
 }
 
-#Preview {
+#Preview(traits: .sizeThatFitsLayout) {
     LoginButton(title: "Login") {}
 }
