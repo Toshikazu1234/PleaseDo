@@ -9,6 +9,8 @@ import Foundation
 import Observation
 
 @Observable final class LoginVM {
+    private let auth = AuthManager()
+    
     enum Status {
         case unknown, loggedIn, loggedOut
     }    
@@ -39,11 +41,21 @@ import Observation
     var newEmail = ""
     var newPw = ""
     
+    init() {
+        auth.delegate = self
+    }
+    
     func didTapButton() {
         if isLoggingIn {
-            
+            auth.signIn(email, pw)
         } else {
-            
+            auth.signUp(fname, lname, newEmail, newPw)
         }
+    }
+}
+
+extension LoginVM: AuthManagerDelegate {
+    func authStateDidChange(_ isLoggedIn: Bool) {
+        loginStatus = isLoggedIn ? .loggedIn : .loggedOut
     }
 }

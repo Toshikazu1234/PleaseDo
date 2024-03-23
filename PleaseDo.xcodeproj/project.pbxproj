@@ -22,6 +22,7 @@
 		50DE99172BAF7D19006A091D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 50DE99162BAF7D19006A091D /* FirebaseAnalytics */; };
 		50DE99192BAF7D19006A091D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 50DE99182BAF7D19006A091D /* FirebaseAuth */; };
 		50DE991B2BAF7D19006A091D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 50DE991A2BAF7D19006A091D /* FirebaseFirestore */; };
+		50DE991D2BAF8A5F006A091D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE991C2BAF8A5F006A091D /* AuthManager.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
 		50EA6D572BAC9D4C00BFD5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EA6D562BAC9D4C00BFD5CF /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		50DE990F2BAF7111006A091D /* SignUpFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFields.swift; sourceTree = "<group>"; };
 		50DE99112BAF7338006A091D /* TogglePromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglePromptView.swift; sourceTree = "<group>"; };
 		50DE99132BAF7BA4006A091D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50DE991C2BAF8A5F006A091D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
 		50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */,
 				50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */,
 				50EA6D822BACA16300BFD5CF /* Extensions.swift */,
+				50DE991C2BAF8A5F006A091D /* AuthManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA6D8D2BACBDDC00BFD5CF /* NewItemView.swift in Sources */,
+				50DE991D2BAF8A5F006A091D /* AuthManager.swift in Sources */,
 				50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */,
 				50DE99042BAF6353006A091D /* EmailTextField.swift in Sources */,
 				50DE990A2BAF675D006A091D /* LoginTitleView.swift in Sources */,
