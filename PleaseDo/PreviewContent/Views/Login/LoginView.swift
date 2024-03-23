@@ -9,6 +9,10 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var vm: LoginVM
+    enum Field: Hashable {
+        case email, pw
+    }
+    @FocusState private var isKeyboardFocused: Field?
     
     var body: some View {
         NavigationStack {
@@ -47,9 +51,13 @@ struct LoginView: View {
                 .padding(.horizontal)
                 
                 VStack(spacing: 5) {
-                    TextField("user@email.com", text: $vm.email)
+                    EmailTextField(showIcon: true, placeholder: "user@email.com", text: $vm.email)
+                        .shadow(color: .gray, radius: 4, x: 1, y: 2.5)
+                        .focused($isKeyboardFocused, equals: .email)
                     
-                    SecureField("password", text: $vm.pw)
+                    PasswordField(showIcon: true, placeholder: "password", text: $vm.pw)
+                        .shadow(color: .gray, radius: 4, x: 1, y: 2.5)
+                        .focused($isKeyboardFocused, equals: .pw)
                 }
                 .padding(.horizontal)
                 
@@ -82,6 +90,23 @@ struct LoginView: View {
                 }
             }
             .padding()
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("Cancel") {
+                        guard let isKeyboardFocused else { return }
+                        switch isKeyboardFocused {
+                        case .email:
+                            vm.email = ""
+                        case .pw:
+                            vm.pw = ""
+                        }
+                        self.isKeyboardFocused = nil
+                    }
+                    Button("Done") {
+                        isKeyboardFocused = nil
+                    }
+                }
+            }
         }
     }
 }
