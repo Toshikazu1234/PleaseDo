@@ -149,6 +149,14 @@
 			path = Todo;
 			sourceTree = "<group>";
 		};
+		50DE991E2BAF9E78006A091D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				50DE991C2BAF8A5F006A091D /* AuthManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		50EA6D462BAC9D4A00BFD5CF = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +192,7 @@
 			children = (
 				50EA6D592BAC9D4C00BFD5CF /* Preview Assets.xcassets */,
 				50EA6D7F2BAC9E2500BFD5CF /* App */,
+				50DE991E2BAF9E78006A091D /* API */,
 				50EA6D7E2BAC9E2000BFD5CF /* Models */,
 				50EA6D7D2BAC9E1A00BFD5CF /* Views */,
 				50EA6D7C2BAC9D9800BFD5CF /* ViewModels */,
@@ -242,7 +251,6 @@
 				50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */,
 				50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */,
 				50EA6D822BACA16300BFD5CF /* Extensions.swift */,
-				50DE991C2BAF8A5F006A091D /* AuthManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
