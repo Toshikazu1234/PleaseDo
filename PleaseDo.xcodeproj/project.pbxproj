@@ -13,6 +13,8 @@
 		50DE99042BAF6353006A091D /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99032BAF6353006A091D /* EmailTextField.swift */; };
 		50DE99062BAF6380006A091D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99052BAF6380006A091D /* KeyboardView.swift */; };
 		50DE99082BAF654D006A091D /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99072BAF654D006A091D /* PasswordField.swift */; };
+		50DE990A2BAF675D006A091D /* LoginTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99092BAF675D006A091D /* LoginTitleView.swift */; };
+		50DE990C2BAF67AD006A091D /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE990B2BAF67AD006A091D /* LoginButton.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
 		50EA6D572BAC9D4C00BFD5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EA6D562BAC9D4C00BFD5CF /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		50DE99032BAF6353006A091D /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
 		50DE99052BAF6380006A091D /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		50DE99072BAF654D006A091D /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		50DE99092BAF675D006A091D /* LoginTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTitleView.swift; sourceTree = "<group>"; };
+		50DE990B2BAF67AD006A091D /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
 		50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,9 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				50B861C92BAD3B3B00CE00D9 /* LoginView.swift */,
+				50DE99092BAF675D006A091D /* LoginTitleView.swift */,
 				50DE99052BAF6380006A091D /* KeyboardView.swift */,
 				50DE99032BAF6353006A091D /* EmailTextField.swift */,
 				50DE99072BAF654D006A091D /* PasswordField.swift */,
+				50DE990B2BAF67AD006A091D /* LoginButton.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -353,12 +359,14 @@
 				50EA6D8D2BACBDDC00BFD5CF /* NewItemView.swift in Sources */,
 				50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */,
 				50DE99042BAF6353006A091D /* EmailTextField.swift in Sources */,
+				50DE990A2BAF675D006A091D /* LoginTitleView.swift in Sources */,
 				50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */,
 				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
 				50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */,
 				50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */,
 				50EA6D912BAD143E00BFD5CF /* NavItem.swift in Sources */,
 				50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */,
+				50DE990C2BAF67AD006A091D /* LoginButton.swift in Sources */,
 				50DE99082BAF654D006A091D /* PasswordField.swift in Sources */,
 				50DE99062BAF6380006A091D /* KeyboardView.swift in Sources */,
 				50B861CA2BAD3B3B00CE00D9 /* LoginView.swift in Sources */,
