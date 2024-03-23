@@ -27,11 +27,13 @@ final class AuthManager {
     init() {
         handler = auth.addStateDidChangeListener { [weak self] auth, user in
             guard let self else { return }
-            guard let user = auth.currentUser else {
+            if auth.currentUser == nil {
                 currentUser = nil
                 return
             }
-            
+            if let user = auth.currentUser, let currentUser, user.uid != currentUser.uid {
+                signOut()
+            }
         }
     }
     
@@ -51,6 +53,7 @@ final class AuthManager {
     func signOut() {
         do {
             try auth.signOut()
+            currentUser = nil
         } catch {
             print(error)
         }
