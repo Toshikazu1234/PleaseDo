@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     let status: Status
     @Binding var items: [Item]
+    private let titleRadius: CGFloat = 10
     
     var body: some View {
         VStack(spacing: 0) {
@@ -18,9 +19,13 @@ struct ListView: View {
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity, maxHeight: 32)
                 .background {
-                    Color.orange
+                    RoundedRectangle(cornerRadius: titleRadius)
+                        .foregroundStyle(.orange)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: titleRadius)
+                                .stroke(.white, lineWidth: 2)
+                        }
                 }
-                .border(.white)
                 .padding(.horizontal)
                 .padding(.top)
                 
