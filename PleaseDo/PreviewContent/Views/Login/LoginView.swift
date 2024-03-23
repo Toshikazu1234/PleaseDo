@@ -59,23 +59,26 @@ struct LoginView: View {
                     Button {
                         print("Login tapped")
                     } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(maxWidth: 140, maxHeight: 80)
-                                .foregroundStyle(.blue)
+                        HStack {
+                            Text("Login")
+                                .font(.largeTitle)
+                                .padding()
+                                .foregroundStyle(
+                                    LinearGradient(colors: [.lightGray, .white], startPoint: .leading, endPoint: .trailing)
+                                )
                             
-                            HStack {
-                                Text("Login")
-                                    .font(.title)
-                                
-                                Image(systemName: "arrow.right")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(maxWidth: 24)
-                            }
-                            .foregroundStyle(.white)
+                            Image(systemName: "arrow.right")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 30, maxHeight: 30)
+                                .padding(.trailing)
+                                .foregroundStyle(.white)
                         }
                     }
+                    .background {
+                        LinearGradient(colors: [.dullBlue, .lightBlue], startPoint: .leading, endPoint: .trailing)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
             }
             .padding()
