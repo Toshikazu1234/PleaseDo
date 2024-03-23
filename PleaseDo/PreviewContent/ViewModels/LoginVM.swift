@@ -14,4 +14,7 @@ import Observation
     }
     
     var loginStatus: Status = .unknown
+    
+    var email = ""
+    var pw = ""
 }
