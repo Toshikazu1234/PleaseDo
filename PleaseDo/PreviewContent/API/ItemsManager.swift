@@ -15,7 +15,7 @@ protocol ItemsManagerDelegate: AnyObject {
 final class ItemsManager {
     weak var delegate: ItemsManagerDelegate?
     private let db = Firestore.firestore()
-    var listener: ListenerRegistration?
+    private var listener: ListenerRegistration?
     
     init() {
         listener = db.collection("Items").addSnapshotListener { [weak self] snapshot, err in
