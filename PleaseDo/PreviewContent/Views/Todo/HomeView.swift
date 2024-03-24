@@ -58,6 +58,8 @@ struct HomeView: View {
                         ItemDetailsView(item: $vm.inProgressItems[i])
                     case .done:
                         ItemDetailsView(item: $vm.doneItems[i])
+                    case .unknown:
+                        ItemDetailsView(item: $vm.unknownItems[i])
                     }
                 }
             }
