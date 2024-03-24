@@ -46,14 +46,12 @@ final class ItemsManager {
                 switch diff.type {
                 case .added, .modified:
                     allItems[item.status]?[item.id] = item
-                    if !isInitialFetch {
-                        delegate?.didFetchItem(item)
-                    }
+                    guard !isInitialFetch else { break }
+                    delegate?.didFetchItem(item)
                 case .removed:
                     allItems[item.status]?.removeValue(forKey: item.id)
-                    if !isInitialFetch {
-                        delegate?.didDeleteItem(item)
-                    }
+                    guard !isInitialFetch else { break }
+                    delegate?.didDeleteItem(item)
                 }
             }
             guard isInitialFetch else { return }
