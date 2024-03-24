@@ -26,6 +26,10 @@ import Foundation
     init() {
         manager.delegate = self
     }
+    
+    func saveNew(_ item: Item) {
+        manager.saveNew(item)
+    }
 }
 
 extension ListVM: ItemsManagerDelegate {
