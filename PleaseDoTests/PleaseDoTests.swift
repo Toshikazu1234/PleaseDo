@@ -10,27 +10,28 @@ import XCTest
 
 final class PleaseDoTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSetInsert() {
+        // setup
+        let localItem = Item(id: "abc123", title: "Thing 1", description: "", status: .todo, priority: .low)
+        let docChangeItem = Item(id: "abc123", title: "Thing 1", description: "", status: .inProgress, priority: .low)
+        let docChangedAgain = Item(id: "abc123", title: "Thing 1", description: "", status: .done, priority: .low)
+        
+        // execute
+        var items: Set<Item> = []
+        items.insert(localItem)
+        items.insert(docChangeItem)
+        items.insert(docChangedAgain)
+        let item = items.first!
+        
+        // assert
+        XCTAssertEqual(localItem, docChangeItem)
+        XCTAssertEqual(localItem, docChangedAgain)
+        XCTAssertEqual(items.count, 1)
+        XCTAssertEqual(item.status, .todo)
+        
+        // Here we test to ensure only 1 Item gets inserted into Set.
+        // This works because we override has(into:) and ==
+        // An object can NOT be inserted into a Set that already contains an equal object.  i.e. Previously existing object in Set will retain, and new object will not be inserted.
     }
 
 }
