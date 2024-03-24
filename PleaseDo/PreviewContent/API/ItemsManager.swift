@@ -16,6 +16,8 @@ protocol ItemsManagerDelegate: AnyObject {
 
 final class ItemsManager {
     weak var delegate: ItemsManagerDelegate?
+    
+    private let itemsCollection = "Items"
     private let db = Firestore.firestore()
     private var listener: ListenerRegistration?
     private var isInitialFetch = true

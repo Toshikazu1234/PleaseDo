@@ -15,6 +15,8 @@ protocol AuthManagerDelegate: AnyObject {
 
 final class AuthManager {
     weak var delegate: AuthManagerDelegate?
+    
+    private let usersCollection = "Users"
     private let auth = Auth.auth()
     private var handler: AuthStateDidChangeListenerHandle?
     
@@ -65,7 +67,7 @@ final class AuthManager {
                 let result = try await auth.createUser(withEmail: email, password: pw)
                 let id = result.user.uid
                 let db = Firestore.firestore()
-                let users = db.collection("Users")
+                let users = db.collection(usersCollection)
                 try await users.document(id).setData([
                     "fname": fname,
                     "lname": lname,
