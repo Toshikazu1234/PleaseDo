@@ -48,6 +48,18 @@ struct Item: Identifiable, Equatable, Hashable {
         self.priority = Priority(priorityString)
         self.isComplete = data[DBKeys.isComplete.rawValue] as! Bool
     }
+    
+    static func newObject(id: String, title: String, description: String, status: Status, priority: Priority) -> [String: Any] {
+        var data: [String: Any] = [:]
+        data[DBKeys.id.rawValue] = id
+        data[DBKeys.title.rawValue] = title
+        data[DBKeys.description.rawValue] = description
+        data[DBKeys.startDate.rawValue] = Timestamp(date: .now)
+        data[DBKeys.status.rawValue] = status.rawValue
+        data[DBKeys.priority.rawValue] = priority.rawValue
+        data[DBKeys.isComplete.rawValue] = false
+        return data
+    }
 }
 
 enum Status: String, CaseIterable {
