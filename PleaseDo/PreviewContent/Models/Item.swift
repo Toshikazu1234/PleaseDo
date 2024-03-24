@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 struct Item: Identifiable, Equatable, Hashable {
     let id: String
+    let authorId: String
     var title: String
     var description: String
     var startDate: Date = .now
@@ -26,11 +27,12 @@ struct Item: Identifiable, Equatable, Hashable {
     }
     
     enum DBKeys: String {
-        case id, title, description, startDate, status, priority, isComplete
+        case id, authorId, title, description, startDate, status, priority, isComplete
     }
     
-    init(id: String, title: String, description: String, status: Status, priority: Priority) {
+    init(id: String, authorId: String, title: String, description: String, status: Status, priority: Priority) {
         self.id = id
+        self.authorId = authorId
         self.title = title
         self.description = description
         self.status = status
@@ -39,6 +41,7 @@ struct Item: Identifiable, Equatable, Hashable {
     
     init(data: [String: Any]) {
         self.id = data[DBKeys.id.rawValue] as! String
+        self.authorId = data[DBKeys.authorId.rawValue] as! String
         self.title = data[DBKeys.title.rawValue] as! String
         self.description = data[DBKeys.description.rawValue] as! String
         self.startDate = (data[DBKeys.startDate.rawValue] as! Timestamp).dateValue()
@@ -52,6 +55,7 @@ struct Item: Identifiable, Equatable, Hashable {
     func toObject() -> [String: Any] {
         var data: [String: Any] = [:]
         data[DBKeys.id.rawValue] = id
+        data[DBKeys.authorId.rawValue] = authorId
         data[DBKeys.title.rawValue] = title
         data[DBKeys.description.rawValue] = description
         data[DBKeys.startDate.rawValue] = Timestamp(date: .now)
