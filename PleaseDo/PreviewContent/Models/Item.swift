@@ -49,7 +49,7 @@ struct Item: Identifiable, Equatable, Hashable {
         self.isComplete = data[DBKeys.isComplete.rawValue] as! Bool
     }
     
-    static func newObject(id: String, title: String, description: String, status: Status, priority: Priority) -> [String: Any] {
+    func toObject() -> [String: Any] {
         var data: [String: Any] = [:]
         data[DBKeys.id.rawValue] = id
         data[DBKeys.title.rawValue] = title
