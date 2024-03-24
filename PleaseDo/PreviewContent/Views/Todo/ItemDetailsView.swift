@@ -82,5 +82,5 @@ struct ItemDetailsView: View {
 }
 
 #Preview {
-    ItemDetailsView(item: .constant(Item(id: "abc123", title: "Take A Break", description: "Make sure to take a break and rest your eyes", startDate: 1711043190, completedDate: nil, status: .todo, priority: .medium)))
+    ItemDetailsView(item: .constant(Item(id: "abc123", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium)))
 }
