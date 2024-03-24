@@ -35,59 +35,68 @@ import Observation
 
 extension ListVM: ItemsManagerDelegate {
     func didFetchBatchItems(_ items: [Status : [Item]]) {
-        if let todos = items[.todo] {
-            todoItems = todos
-        }
-        if let itemsInProgress = items[.inProgress] {
-            inProgressItems = itemsInProgress
-        }
-        if let done = items[.done] {
-            doneItems = done
-        }
-        if let unknown = items[.unknown] {
-            unknownItems = unknown
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if let todos = items[.todo] {
+                todoItems = todos
+            }
+            if let itemsInProgress = items[.inProgress] {
+                inProgressItems = itemsInProgress
+            }
+            if let done = items[.done] {
+                doneItems = done
+            }
+            if let unknown = items[.unknown] {
+                unknownItems = unknown
+            }
         }
     }
     
     func didFetchItem(_ item: Item) {
-        if let i = todoItems.firstIndex(of: item) {
-            if todoItems[i].status == item.status {
-                todoItems[i] = item
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if let i = todoItems.firstIndex(of: item) {
+                if todoItems[i].status == item.status {
+                    todoItems[i] = item
+                } else {
+                    todoItems.remove(at: i)
+                    moveItem(item)
+                }
+            } else if let i = inProgressItems.firstIndex(of: item) {
+                if inProgressItems[i].status == item.status {
+                    inProgressItems[i] = item
+                } else {
+                    inProgressItems.remove(at: i)
+                    moveItem(item)
+                }
+            } else if let i = doneItems.firstIndex(of: item) {
+                if doneItems[i].status == item.status {
+                    doneItems[i] = item
+                } else {
+                    doneItems.remove(at: i)
+                    moveItem(item)
+                }
             } else {
-                todoItems.remove(at: i)
-                moveItem(item)
+                unknownItems.append(item)
             }
-        } else if let i = inProgressItems.firstIndex(of: item) {
-            if inProgressItems[i].status == item.status {
-                inProgressItems[i] = item
-            } else {
-                inProgressItems.remove(at: i)
-                moveItem(item)
-            }
-        } else if let i = doneItems.firstIndex(of: item) {
-            if doneItems[i].status == item.status {
-                doneItems[i] = item
-            } else {
-                doneItems.remove(at: i)
-                moveItem(item)
-            }
-        } else {
-            unknownItems.append(item)
         }
     }
     
     func didDeleteItem(_ item: Item) {
-        if let i = todoItems.firstIndex(of: item) {
-            todoItems.remove(at: i)
-        }
-        if let i = inProgressItems.firstIndex(of: item) {
-            inProgressItems.remove(at: i)
-        }
-        if let i = doneItems.firstIndex(of: item) {
-            doneItems.remove(at: i)
-        }
-        if let i = unknownItems.firstIndex(of: item) {
-            unknownItems.remove(at: i)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if let i = todoItems.firstIndex(of: item) {
+                todoItems.remove(at: i)
+            }
+            if let i = inProgressItems.firstIndex(of: item) {
+                inProgressItems.remove(at: i)
+            }
+            if let i = doneItems.firstIndex(of: item) {
+                doneItems.remove(at: i)
+            }
+            if let i = unknownItems.firstIndex(of: item) {
+                unknownItems.remove(at: i)
+            }
         }
     }
     
