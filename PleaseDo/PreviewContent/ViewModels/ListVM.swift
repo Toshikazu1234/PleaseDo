@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Observation
 
 @Observable final class ListVM {
     private let manager = ItemsManager()
