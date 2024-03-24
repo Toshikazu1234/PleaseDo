@@ -35,7 +35,7 @@ final class ItemsManager {
     ]
     
     init() {
-        listener = db.collection("Items").addSnapshotListener { [weak self] snapshot, err in
+        listener = db.collection(itemsCollection).addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching docs: \(err)")
                 return
