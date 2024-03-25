@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var loginVM: LoginVM
     @State private var vm = ListVM()
     @State private var nav = NavigationManager()
     @State private var showLogout = false
@@ -65,7 +66,7 @@ struct HomeView: View {
             }
             .alert(isPresented: $showLogout) {
                 Alert(title: Text("Alert"), message: Text("Continue signing out?"), primaryButton: .destructive(Text("Confirm"), action: {
-                    print("Logout user")
+                    loginVM.signOut()
                 }), secondaryButton: .cancel())
             }
         }
@@ -74,4 +75,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(LoginVM())
 }

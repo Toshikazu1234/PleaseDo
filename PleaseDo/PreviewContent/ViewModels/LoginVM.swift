@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import Observation
 
-@Observable final class LoginVM {
+final class LoginVM: ObservableObject {
     private let auth = AuthManager()
-    
+        
     enum Status {
         case unknown, loggedIn, loggedOut
     }    
-    var loginStatus: Status = .unknown
+    @Published var loginStatus: Status = .unknown
     
-    var isLoggingIn = true {
+    @Published var isLoggingIn = true {
         didSet {
             if isLoggingIn {
                 prompt = "Login"
@@ -29,20 +28,23 @@ import Observation
             }
         }
     }
-    var prompt = "Login"
-    var toggleText = "Don't have an account?"
-    var toggleButton = "Sign up here"
+    @Published var prompt = "Login"
+    @Published var toggleText = "Don't have an account?"
+    @Published var toggleButton = "Sign up here"
     
-    var email = ""
-    var pw = ""
+    @Published var email = ""
+    @Published var pw = ""
     
-    var fname = ""
-    var lname = ""
-    var newEmail = ""
-    var newPw = ""
+    @Published var fname = ""
+    @Published var lname = ""
+    @Published var newEmail = ""
+    @Published var newPw = ""
     
+    /// Has AuthManager property that may initialize before self is finished initializing and before auth.delegate is set to self.
+    /// Because of this we check auth.currentUser to set the loginStatus.
     init() {
         auth.delegate = self
+        loginStatus = auth.currentUser != nil ? .loggedIn : .loggedOut
     }
     
     func didTapButton() {
@@ -51,6 +53,10 @@ import Observation
         } else {
             auth.signUp(fname, lname, newEmail, newPw)
         }
+    }
+    
+    func signOut() {
+        auth.signOut()
     }
 }
 

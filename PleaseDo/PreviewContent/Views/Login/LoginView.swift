@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Binding var vm: LoginVM
+    @EnvironmentObject var vm: LoginVM
     
     var body: some View {
         NavigationStack {
@@ -46,5 +46,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(vm: .constant(LoginVM()))
+    LoginView()
+        .environmentObject(LoginVM())
 }

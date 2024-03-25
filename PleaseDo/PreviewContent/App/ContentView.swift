@@ -8,19 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var vm = LoginVM()
+    @StateObject private var vm = LoginVM()
     
     var body: some View {
         switch vm.loginStatus {
         case .unknown:
-            ProgressView()
-                .progressViewStyle(.circular)
-                .scaleEffect(2)
+            withAnimation(.easeInOut) {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .scaleEffect(2)
+            }
         case .loggedIn:
-            HomeView()
+            withAnimation(.easeInOut) {
+                HomeView()
+                    .environmentObject(vm)
+            }
         case .loggedOut:
-            LoginView(vm: $vm)
+            withAnimation(.easeInOut) {
+                LoginView()
+                    .environmentObject(vm)
+            }
         }
+    }
+    
+    init() {
+        print("$$ ContentView init()")
+        print("$$ ")
     }
 }
 
