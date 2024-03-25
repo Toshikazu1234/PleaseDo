@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 protocol AuthManagerDelegate: AnyObject {
-    func authStateDidChange(_ isLoggedIn: Bool)
+    func authStateDidChange(isLoggedIn: Bool)
 }
 
 final class AuthManager {
@@ -22,7 +22,7 @@ final class AuthManager {
     
     private(set) var currentUser: User? {
         didSet {
-            delegate?.authStateDidChange(currentUser != nil)
+            delegate?.authStateDidChange(isLoggedIn: currentUser != nil)
         }
     }
     

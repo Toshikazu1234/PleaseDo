@@ -55,7 +55,7 @@ import Observation
 }
 
 extension LoginVM: AuthManagerDelegate {
-    func authStateDidChange(_ isLoggedIn: Bool) {
+    func authStateDidChange(isLoggedIn: Bool) {
         loginStatus = isLoggedIn ? .loggedIn : .loggedOut
     }
 }
