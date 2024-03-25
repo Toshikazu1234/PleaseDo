@@ -79,14 +79,13 @@ final class ItemsManager {
         listDelegate?.didFetchBatchItems(sortedItems)
     }
     
-    func saveNew(_ item: Item) {
-        Task {
-            do {
-                try await db.collection(itemsCollection).document(item.id).setData(item.toObject())
-                print("Item saved successfully!")
-            } catch {
-                print(error)
-            }
+    func saveNew(_ item: Item) async throws {
+        do {
+            try await db.collection(itemsCollection).document(item.id).setData(item.toObject())
+            print("Item saved successfully!")
+        } catch {
+            print(error)
+            throw error
         }
     }
 }

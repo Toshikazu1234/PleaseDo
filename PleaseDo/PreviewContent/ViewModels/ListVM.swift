@@ -25,10 +25,6 @@ import Observation
     init() {
         IM.shared.listDelegate = self
     }
-    
-    func saveNew(_ item: Item) {
-        IM.shared.saveNew(item)
-    }
 }
 
 extension ListVM: ItemsManagerListDelegate {
