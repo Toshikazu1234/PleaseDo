@@ -49,13 +49,14 @@ final class AuthManager {
         auth.signIn(withEmail: email, password: pw) { [weak self] result, err in
             guard let self, let result else { return }
             currentUser = result.user
+            print("Successfully signed in user!")
         }
     }
     
     func signOut() {
         do {
             try auth.signOut()
-            currentUser = nil
+            print("Successfully signed out user!")
         } catch {
             print(error)
         }
