@@ -12,9 +12,9 @@ final class PleaseDoTests: XCTestCase {
 
     func testSetInsert() {
         // setup
-        let localItem = Item(id: "abc123", title: "Thing 1", description: "", status: .todo, priority: .low)
-        let docChangeItem = Item(id: "abc123", title: "Thing 1", description: "", status: .inProgress, priority: .low)
-        let docChangedAgain = Item(id: "abc123", title: "Thing 1", description: "", status: .done, priority: .low)
+        let localItem = Item(id: "abc123", authorId: "123456789", title: "Thing 1", description: "", status: .todo, priority: .low)
+        let docChangeItem = Item(id: "abc123", authorId: "123456789", title: "Thing 1", description: "", status: .inProgress, priority: .low)
+        let docChangedAgain = Item(id: "abc123", authorId: "123456789", title: "Thing 1", description: "", status: .done, priority: .low)
         
         // execute
         var items: Set<Item> = []
