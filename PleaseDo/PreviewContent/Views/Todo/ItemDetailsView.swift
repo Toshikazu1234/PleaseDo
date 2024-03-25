@@ -9,63 +9,28 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     @Binding var item: Item
+    @State private var isStatusExpanded = false
     
     var body: some View {
-        List {
+        VStack(spacing: 10) {
             TitledTextField(title: "Title", text: $item.title, placeholder: "What do you need to do?")
+            
+            Divider()
             
             TitledTextField(title: "Description", text: $item.description, placeholder: "Add a brief description.")
             
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Status:")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                
-                DisclosureGroup(item.status.rawValue) {
-                    ForEach(0..<Status.allCases.count, id: \.self) { i in
-                        let status = Status.allCases[i]
-                        HStack {
-                            Text(status.rawValue)
-                            
-                            Spacer()
-                            
-                            if item.status == status {
-                                Image(systemName: "checkmark")
-                            }
-                        }
-                    }
-                }
-                .frame(maxHeight: 75)
-            }
+            Divider()
             
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Priority:")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                
-                DisclosureGroup(item.priority.rawValue) {
-                    ForEach(0..<Priority.allCases.count, id: \.self) { i in
-                        let priority = Priority.allCases[i]
-                        HStack {
-                            Text(priority.rawValue)
-                            
-                            Spacer()
-                            
-                            if item.priority == priority {
-                                Image(systemName: "checkmark")
-                            }
-                        }
-                    }
-                }
-                .frame(maxHeight: 75)
-            }
+            StatusSelector(itemStatus: $item.status)
+            
+            Divider()
+            
+            PrioritySelector(itemPriority: $item.priority)
+            
+            Spacer()
         }
-        .scrollContentBackground(.hidden)
-        .listStyle(.insetGrouped)
+        .padding()
         .navigationTitle("Details")
-        .toolbar {
-            EditButton()
-        }
     }
 }
 

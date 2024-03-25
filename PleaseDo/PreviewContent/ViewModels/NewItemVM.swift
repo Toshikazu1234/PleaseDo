@@ -12,22 +12,26 @@ import FirebaseAuth
 @Observable final class NewItemVM {
     private let auth = Auth.auth()
     
-    var title = ""
-    var description = ""
-    var status: Status = .todo
-    var priority: Priority = .low
+    var newItem = Item(
+        id: "",
+        authorId: "",
+        title: "",
+        description: "",
+        status: .todo,
+        priority: .low)
     
-    func saveNewItem() async throws {
-        guard let user = auth.currentUser else {
-            throw Errors.noCurrentUser
-        }
-        let item = Item(
+    init() {
+        guard let user = auth.currentUser else { return }
+        newItem = Item(
             id: UUID().uuidString,
             authorId: user.uid,
-            title: title,
-            description: description,
-            status: status,
-            priority: priority)
-        try await IM.shared.saveNew(item)
+            title: "",
+            description: "",
+            status: .todo,
+            priority: .low)
+    }
+    
+    func saveNewItem() async throws {
+        try await IM.shared.saveNew(newItem)
     }
 }
