@@ -12,21 +12,9 @@ struct ItemDetailsView: View {
     
     var body: some View {
         List {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Title:")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                
-                TextField("", text: $item.title, axis: .vertical)
-            }
+            TitledTextField(title: "Title", text: $item.title, placeholder: "What do you need to do?")
             
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Description:")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                
-                TextField("", text: $item.description, axis: .vertical)
-            }
+            TitledTextField(title: "Description", text: $item.description, placeholder: "Add a brief description.")
             
             VStack(alignment: .leading, spacing: 0) {
                 Text("Status:")

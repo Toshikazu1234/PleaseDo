@@ -26,6 +26,7 @@
 		50DE99202BAF9ED5006A091D /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE991F2BAF9ED5006A091D /* ItemsManager.swift */; };
 		50DE99222BB10E98006A091D /* NewItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99212BB10E98006A091D /* NewItemVM.swift */; };
 		50DE99242BB1123A006A091D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99232BB1123A006A091D /* Errors.swift */; };
+		50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99252BB118A5006A091D /* TitledTextField.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
 		50EA6D572BAC9D4C00BFD5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EA6D562BAC9D4C00BFD5CF /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		50DE991F2BAF9ED5006A091D /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = "<group>"; };
 		50DE99212BB10E98006A091D /* NewItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemVM.swift; sourceTree = "<group>"; };
 		50DE99232BB1123A006A091D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		50DE99252BB118A5006A091D /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
 		50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				50EA6D862BACA9B100BFD5CF /* ListItemView.swift */,
 				50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */,
 				50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */,
+				50DE99252BB118A5006A091D /* TitledTextField.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				50DE990E2BAF6F72006A091D /* LoginFields.swift in Sources */,
 				50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */,
 				50DE99122BAF7338006A091D /* TogglePromptView.swift in Sources */,
+				50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */,
 				50DE99102BAF7111006A091D /* SignUpFields.swift in Sources */,
 				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
 				50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */,
