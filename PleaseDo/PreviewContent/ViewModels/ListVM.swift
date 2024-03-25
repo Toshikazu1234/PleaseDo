@@ -25,7 +25,7 @@ import Observation
     var unknownItems: [Item] = []
     
     init() {
-        manager.delegate = self
+        manager.listDelegate = self
     }
     
     func saveNew(_ item: Item) {

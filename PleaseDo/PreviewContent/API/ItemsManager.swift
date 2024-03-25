@@ -15,7 +15,7 @@ protocol ItemsManagerDelegate: AnyObject {
 }
 
 final class ItemsManager {
-    weak var delegate: ItemsManagerDelegate?
+    weak var listDelegate: ItemsManagerDelegate?
     
     private let itemsCollection = "Items"
     private let db = Firestore.firestore()
@@ -49,11 +49,11 @@ final class ItemsManager {
                 case .added, .modified:
                     allItems[item.status]?[item.id] = item
                     guard !isInitialFetch else { break }
-                    delegate?.didFetchItem(item)
+                    listDelegate?.didFetchItem(item)
                 case .removed:
                     allItems[item.status]?.removeValue(forKey: item.id)
                     guard !isInitialFetch else { break }
-                    delegate?.didDeleteItem(item)
+                    listDelegate?.didDeleteItem(item)
                 }
             }
             guard isInitialFetch else { return }
@@ -74,7 +74,7 @@ final class ItemsManager {
                 $0.startDate > $1.startDate
             })
         }
-        delegate?.didFetchBatchItems(sortedItems)
+        listDelegate?.didFetchBatchItems(sortedItems)
     }
     
     func saveNew(_ item: Item) {
