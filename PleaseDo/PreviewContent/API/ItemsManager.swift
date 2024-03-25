@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-protocol ItemsManagerDelegate: AnyObject {
+protocol ItemsManagerListDelegate: AnyObject {
     func didFetchBatchItems(_ items: [Status: [Item]])
     func didFetchItem(_ item: Item)
     func didDeleteItem(_ item: Item)
@@ -17,7 +17,7 @@ protocol ItemsManagerDelegate: AnyObject {
 typealias IM = ItemsManager
 final class ItemsManager {
     static let shared = ItemsManager()
-    weak var listDelegate: ItemsManagerDelegate?
+    weak var listDelegate: ItemsManagerListDelegate?
     
     private let itemsCollection = "Items"
     private let db = Firestore.firestore()

@@ -31,7 +31,7 @@ import Observation
     }
 }
 
-extension ListVM: ItemsManagerDelegate {
+extension ListVM: ItemsManagerListDelegate {
     func didFetchBatchItems(_ items: [Status : [Item]]) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
