@@ -16,5 +16,5 @@ enum Path: Hashable {
 @Observable final class NavigationManager {
     var path = NavigationPath()
     
-    
+    // Add potential deep-linking logic.
 }
