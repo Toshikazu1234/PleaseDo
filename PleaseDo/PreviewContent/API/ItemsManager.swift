@@ -14,7 +14,9 @@ protocol ItemsManagerDelegate: AnyObject {
     func didDeleteItem(_ item: Item)
 }
 
+typealias IM = ItemsManager
 final class ItemsManager {
+    static let shared = ItemsManager()
     weak var listDelegate: ItemsManagerDelegate?
     
     private let itemsCollection = "Items"
@@ -34,7 +36,7 @@ final class ItemsManager {
         .unknown : [:]
     ]
     
-    init() {
+    private init() {
         listener = db.collection(itemsCollection).addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching docs: \(err)")

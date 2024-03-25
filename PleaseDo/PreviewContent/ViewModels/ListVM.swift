@@ -9,8 +9,6 @@ import Foundation
 import Observation
 
 @Observable final class ListVM {
-    private let manager = ItemsManager()
-    
     var todoItems: [Item] = [
         Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium),
         Item(id: "123abc", authorId: "123456789", title: "Have A Snack", description: "Small snacks throughout the day are a great way to increase blood sugar for people with hypoglycemia", status: .todo, priority: .low)
@@ -25,11 +23,11 @@ import Observation
     var unknownItems: [Item] = []
     
     init() {
-        manager.listDelegate = self
+        IM.shared.listDelegate = self
     }
     
     func saveNew(_ item: Item) {
-        manager.saveNew(item)
+        IM.shared.saveNew(item)
     }
 }
 
