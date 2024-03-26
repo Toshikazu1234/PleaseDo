@@ -64,10 +64,13 @@ struct HomeView: View {
                     }
                 }
             }
-            .alert(isPresented: $showLogout) {
-                Alert(title: Text("Alert"), message: Text("Continue signing out?"), primaryButton: .destructive(Text("Confirm"), action: {
+            .confirmationDialog("Continue signing out?", isPresented: $showLogout) {
+                Button("Confirm", role: .destructive) {
                     loginVM.signOut()
-                }), secondaryButton: .cancel())
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Continue signing out?")
             }
         }
     }
