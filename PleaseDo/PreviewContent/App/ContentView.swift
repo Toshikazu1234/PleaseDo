@@ -24,11 +24,6 @@ struct ContentView: View {
                 .environmentObject(vm)
         }
     }
-    
-    init() {
-        print("$$ ContentView init()")
-        print("$$ ")
-    }
 }
 
 #Preview {
