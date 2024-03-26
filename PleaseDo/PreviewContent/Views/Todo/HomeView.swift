@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var loginVM: LoginVM
-    @State private var vm = ListVM()
+    @StateObject private var vm = ListVM()
     @State private var nav = NavigationManager()
     @State private var showLogout = false
     
