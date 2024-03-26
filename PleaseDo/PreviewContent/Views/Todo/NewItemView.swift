@@ -31,7 +31,7 @@ struct NewItemView: View {
             
             Spacer()
             
-            Button {
+            CTAButton(title: "Confirm") {
                 Task {
                     do {
                         try await vm.saveNewItem()
@@ -39,17 +39,7 @@ struct NewItemView: View {
                         saveItemError = true
                     }
                 }
-            } label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.blue)
-                    
-                    Text("Confirm")
-                        .font(.largeTitle)
-                        .foregroundStyle(.white)
-                }
             }
-            .frame(maxHeight: 65)
             .alert("Alert", isPresented: $saveItemError) {
                 Button("Dismiss", role: .cancel) {}
             } message: {

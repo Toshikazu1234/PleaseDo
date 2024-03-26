@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501023122BB349BF003CCAE8 /* CTAButton.swift */; };
 		50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C32BAD38B500CE00D9 /* HomeView.swift */; };
 		50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C52BAD393800CE00D9 /* LoginVM.swift */; };
 		50B861CA2BAD3B3B00CE00D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C92BAD3B3B00CE00D9 /* LoginView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501023122BB349BF003CCAE8 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		50B861C32BAD38B500CE00D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		50B861C52BAD393800CE00D9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		50B861C92BAD3B3B00CE00D9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */,
 				50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */,
 				50DE99252BB118A5006A091D /* TitledTextField.swift */,
+				501023122BB349BF003CCAE8 /* CTAButton.swift */,
 				50DE992B2BB1254C006A091D /* DisclosureGroups */,
 				50DE992C2BB1256A006A091D /* New Group */,
 			);
@@ -464,6 +467,7 @@
 				50EA6D812BAC9E4A00BFD5CF /* ListView.swift in Sources */,
 				50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */,
 				50EA6D832BACA16300BFD5CF /* Extensions.swift in Sources */,
+				501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */,
 				50EA6D8F2BAD089600BFD5CF /* NavigationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
