@@ -12,14 +12,17 @@ struct DisclosureGroupPriorityRow: View {
     @Binding var itemPriority: Priority
     
     var body: some View {
-        HStack {
-            Text(priority.rawValue)
-                .foregroundStyle(.secondary)
-            
-            Spacer()
-            
-            if itemPriority == priority {
-                Image(systemName: "checkmark")
+        Button {
+            itemPriority = priority
+        } label: {
+            HStack {
+                Text(priority.rawValue)
+                
+                Spacer()
+                
+                if itemPriority == priority {
+                    Image(systemName: "checkmark")
+                }
             }
         }
     }

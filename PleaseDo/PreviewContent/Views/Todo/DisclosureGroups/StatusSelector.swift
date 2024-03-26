@@ -9,24 +9,26 @@ import SwiftUI
 
 struct StatusSelector: View {
     @Binding var itemStatus: Status
-    @State private var isExpanded = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Status:")
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-            
-            DisclosureGroup(isExpanded: $isExpanded) {
-                DisclosureGroupStatusRow(status: .todo, itemStatus: $itemStatus)
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Status:")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
                 
-                DisclosureGroupStatusRow(status: .inProgress, itemStatus: $itemStatus)
-                
-                DisclosureGroupStatusRow(status: .done, itemStatus: $itemStatus)
-            } label: {
-                Text(itemStatus.rawValue)
-                    .foregroundStyle(.primary)
+                Menu {
+                    DisclosureGroupStatusRow(status: .todo, itemStatus: $itemStatus)
+    
+                    DisclosureGroupStatusRow(status: .inProgress, itemStatus: $itemStatus)
+    
+                    DisclosureGroupStatusRow(status: .done, itemStatus: $itemStatus)
+                } label: {
+                    Text(itemStatus.rawValue)
+                        .foregroundStyle(.primary)
+                }
             }
+            Spacer()
         }
     }
 }

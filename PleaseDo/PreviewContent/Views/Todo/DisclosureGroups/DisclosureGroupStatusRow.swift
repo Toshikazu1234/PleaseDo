@@ -12,14 +12,17 @@ struct DisclosureGroupStatusRow: View {
     @Binding var itemStatus: Status
     
     var body: some View {
-        HStack {
-            Text(status.rawValue)
-                .foregroundStyle(.secondary)
-            
-            Spacer()
-            
-            if itemStatus == status {
-                Image(systemName: "checkmark")
+        Button {
+            itemStatus = status
+        } label: {
+            HStack {
+                Text(status.rawValue)
+                
+                Spacer()
+                
+                if itemStatus == status {
+                    Image(systemName: "checkmark")
+                }
             }
         }
     }
