@@ -40,7 +40,7 @@ final class LoginVM: ObservableObject {
     @Published var newEmail = ""
     @Published var newPw = ""
     
-    /// Becuase `AuthManager` property may initialize before self is finished initializing and before `auth.delegate` is set to self, we need to check `auth.currentUser` to set the `loginStatus`.
+    /// Because `AuthManager` property may initialize before `self` is finished initializing and before `auth.delegate` is set to `self`, we need to check `auth.currentUser` to set the `loginStatus`.
     init() {
         auth.delegate = self
         loginStatus = auth.currentUser != nil ? .loggedIn : .loggedOut
