@@ -64,6 +64,17 @@ struct Item: Identifiable, Equatable, Hashable {
         data[DBKeys.isComplete.rawValue] = false
         return data
     }
+    
+    func isDifferent(comparedTo item: Item) -> Bool {
+        return id != item.id
+        || authorId != item.authorId
+        || title != item.title
+        || description != item.description
+        || startDate != item.startDate
+        || status != item.status
+        || priority != item.priority
+        || isComplete != item.isComplete
+    }
 }
 
 enum Status: String, CaseIterable {
