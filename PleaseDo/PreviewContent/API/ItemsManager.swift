@@ -19,8 +19,8 @@ final class ItemsManager {
     static let shared = ItemsManager()
     weak var listDelegate: ItemsManagerListDelegate?
     
-    private let itemsCollection = "Items"
     private let db = Firestore.firestore()
+    private lazy var itemsCollection = db.collection("Items")
     private var listener: ListenerRegistration?
     private var isInitialFetch = true
     
@@ -37,7 +37,7 @@ final class ItemsManager {
     ]
     
     private init() {
-        listener = db.collection(itemsCollection).addSnapshotListener { [weak self] snapshot, err in
+        listener = itemsCollection.addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching docs: \(err)")
                 return
@@ -79,9 +79,11 @@ final class ItemsManager {
         listDelegate?.didFetchBatchItems(sortedItems)
     }
     
-    func saveNew(_ item: Item) async throws {
+    /// Writes to the Firebase collection "Items".
+    /// Use to save a new item AND to update an existing item by overwriting it.
+    func save(_ item: Item) async throws {
         do {
-            try await db.collection(itemsCollection).document(item.id).setData(item.toObject())
+            try await itemsCollection.document(item.id).setData(item.toObject())
             print("Item saved successfully!")
         } catch {
             print(error)
