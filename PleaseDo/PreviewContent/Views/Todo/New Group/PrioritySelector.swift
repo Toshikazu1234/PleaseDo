@@ -18,11 +18,11 @@ struct PrioritySelector: View {
                     .foregroundStyle(.secondary)
                 
                 Menu {
-                    DisclosureGroupPriorityRow(priority: .low, itemPriority: $itemPriority)
-                    
-                    DisclosureGroupPriorityRow(priority: .medium, itemPriority: $itemPriority)
-                    
-                    DisclosureGroupPriorityRow(priority: .high, itemPriority: $itemPriority)
+                    ForEach(Priority.allCases, id: \.self) {
+                        if $0 != .unknown {
+                            DisclosureGroupPriorityRow(priority: $0, itemPriority: $itemPriority)
+                        }
+                    }
                 } label: {
                     Text(itemPriority.rawValue)
                         .foregroundStyle(.primary)

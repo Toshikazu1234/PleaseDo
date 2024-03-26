@@ -18,11 +18,11 @@ struct StatusSelector: View {
                     .foregroundStyle(.secondary)
                 
                 Menu {
-                    DisclosureGroupStatusRow(status: .todo, itemStatus: $itemStatus)
-    
-                    DisclosureGroupStatusRow(status: .inProgress, itemStatus: $itemStatus)
-    
-                    DisclosureGroupStatusRow(status: .done, itemStatus: $itemStatus)
+                    ForEach(Status.allCases, id: \.self) {
+                        if $0 != .unknown {
+                            DisclosureGroupStatusRow(status: $0, itemStatus: $itemStatus)
+                        }
+                    }
                 } label: {
                     Text(itemStatus.rawValue)
                         .foregroundStyle(.primary)
