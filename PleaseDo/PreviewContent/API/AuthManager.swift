@@ -27,6 +27,9 @@ final class AuthManager {
     }
     
     init() {
+        if let user = auth.currentUser {
+            currentUser = user
+        }
         handler = auth.addStateDidChangeListener { [weak self] auth, user in
             guard let self else { return }
             if auth.currentUser == nil {
