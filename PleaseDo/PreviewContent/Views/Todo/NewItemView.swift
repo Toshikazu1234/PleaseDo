@@ -9,9 +9,12 @@ import SwiftUI
 
 struct NewItemView: View {
     @State private var vm = NewItemVM()
+    @State private var saveItemError = false
     
     var body: some View {
         VStack(spacing: 10) {
+            Spacer()
+            
             TitledTextField(title: "Title", text: $vm.newItem.title, placeholder: "What do you need to do?")
             
             Divider()
@@ -25,6 +28,33 @@ struct NewItemView: View {
             Divider()
             
             PrioritySelector(itemPriority: $vm.newItem.priority)
+            
+            Spacer()
+            
+            Button {
+                Task {
+                    do {
+                        try await vm.saveNewItem()
+                    } catch {
+                        saveItemError = true
+                    }
+                }
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.blue)
+                    
+                    Text("Confirm")
+                        .font(.largeTitle)
+                        .foregroundStyle(.white)
+                }
+            }
+            .frame(maxHeight: 65)
+            .alert("Alert", isPresented: $saveItemError) {
+                Button("Dismiss", role: .cancel) {}
+            } message: {
+                Text("Error saving new item.")
+            }
         }
         .padding(.horizontal)
         .navigationTitle("New Item")
