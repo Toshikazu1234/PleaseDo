@@ -43,8 +43,8 @@ final class AuthManager {
     }
     
     deinit {
-        if let handler {
-            auth.removeStateDidChangeListener(handler)
+        if let h = handler {
+            auth.removeStateDidChangeListener(h)
         }
     }
     
