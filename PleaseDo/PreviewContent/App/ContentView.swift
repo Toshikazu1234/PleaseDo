@@ -13,21 +13,15 @@ struct ContentView: View {
     var body: some View {
         switch vm.loginStatus {
         case .unknown:
-            withAnimation(.easeInOut) {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .scaleEffect(2)
-            }
+            ProgressView()
+                .progressViewStyle(.circular)
+                .scaleEffect(2)
         case .loggedIn:
-            withAnimation(.easeInOut) {
-                HomeView()
-                    .environmentObject(vm)
-            }
+            HomeView()
+                .environmentObject(vm)
         case .loggedOut:
-            withAnimation(.easeInOut) {
-                LoginView()
-                    .environmentObject(vm)
-            }
+            LoginView()
+                .environmentObject(vm)
         }
     }
     
