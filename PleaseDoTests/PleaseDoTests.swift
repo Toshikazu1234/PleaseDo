@@ -33,5 +33,21 @@ final class PleaseDoTests: XCTestCase {
         // This works because we override has(into:) and ==
         // An object can NOT be inserted into a Set that already contains an equal object.  i.e. Previously existing object in Set will retain, and new object will not be inserted.
     }
+    
+    func testDictionary() {
+        // setup
+        let allItems: [Status: [String: Item]] = [
+            .todo : [:],
+            .inProgress : [:],
+            .done : [:],
+            .unknown : [:]
+        ]
+        
+        // execute
+        let todos = allItems[.todo]
+        
+        // assert
+        XCTAssertNotEqual(todos, nil)
+    }
 
 }
