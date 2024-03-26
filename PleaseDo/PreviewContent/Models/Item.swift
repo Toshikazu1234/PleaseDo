@@ -73,20 +73,23 @@ enum Status: String, CaseIterable {
     case unknown = "Unknown"
     
     init(_ str: String) {
-        self = switch str {
-        case "To Do": .todo
-        case "In Progress": .inProgress
-        case "Done": .done
+        self = switch str.lowercased() {
+        case "to do": .todo
+        case "in progress": .inProgress
+        case "done": .done
         default: .unknown
         }
     }
 }
 
 enum Priority: String, CaseIterable {
-    case low, medium, high, unknown
+    case low = "Low"
+    case medium = "Medium"
+    case high = "High"
+    case unknown = "Unknown"
     
     init(_ str: String) {
-        self = switch str {
+        self = switch str.lowercased() {
         case "low": .low
         case "medium": .medium
         case "high": .high
