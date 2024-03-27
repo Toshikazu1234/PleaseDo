@@ -54,13 +54,13 @@ struct HomeView: View {
                     let i = item.index
                     switch item.status {
                     case .todo:
-                        ItemDetailsView(item: $vm.todoItems[i])
+                        ItemDetailsView(item: vm.todoItems[i])
                     case .inProgress:
-                        ItemDetailsView(item: $vm.inProgressItems[i])
+                        ItemDetailsView(item: vm.inProgressItems[i])
                     case .done:
-                        ItemDetailsView(item: $vm.doneItems[i])
+                        ItemDetailsView(item: vm.doneItems[i])
                     case .unknown:
-                        ItemDetailsView(item: $vm.unknownItems[i])
+                        ItemDetailsView(item: vm.unknownItems[i])
                     }
                 }
             }
