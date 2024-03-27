@@ -32,6 +32,6 @@ import FirebaseAuth
     }
     
     func saveNewItem() async throws {
-        try await IM.shared.saveNew(newItem)
+        try await IM.shared.save(newItem)
     }
 }
