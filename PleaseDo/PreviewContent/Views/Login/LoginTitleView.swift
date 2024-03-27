@@ -13,6 +13,7 @@ struct LoginTitleView: View {
             Image("PleaseDoLogo")
                 .resizable()
                 .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 20))
             
             VStack(spacing: 3) {
                 Text("Please Do")
