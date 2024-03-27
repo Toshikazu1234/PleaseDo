@@ -17,9 +17,11 @@ struct CTAButton: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(color)
             
-            Text(title)
-                .font(.largeTitle)
-                .foregroundStyle(.white)
+            Button(action: action) {
+                Text(title)
+                    .font(.largeTitle)
+                    .foregroundStyle(.white)
+            }
         }
         .frame(maxHeight: 65)
     }
