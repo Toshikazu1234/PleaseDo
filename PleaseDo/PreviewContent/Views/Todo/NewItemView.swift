@@ -10,6 +10,7 @@ import SwiftUI
 struct NewItemView: View {
     @State private var vm = NewItemVM()
     @State private var saveItemError = false
+    @State private var didSaveItem = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -35,6 +36,7 @@ struct NewItemView: View {
                 Task {
                     do {
                         try await vm.saveNewItem()
+                        didSaveItem = true
                     } catch {
                         saveItemError = true
                     }
@@ -44,6 +46,11 @@ struct NewItemView: View {
                 Button("Dismiss", role: .cancel) {}
             } message: {
                 Text("Error saving new item.")
+            }
+            .alert("Success!", isPresented: $didSaveItem) {
+                Button("Dismiss", role: .cancel) {}
+            } message: {
+                Text("New item saved successfully.")
             }
         }
         .padding(.horizontal)
