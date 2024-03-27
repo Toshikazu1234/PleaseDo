@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 
 protocol ItemsManagerListDelegate: AnyObject {
@@ -37,7 +38,8 @@ final class ItemsManager {
     ]
     
     private init() {
-        listener = itemsCollection.addSnapshotListener { [weak self] snapshot, err in
+        guard let user = Auth.auth().currentUser else { return }
+        listener = itemsCollection.whereField("authorId", isEqualTo: user.uid).addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching docs: \(err)")
                 return
