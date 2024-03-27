@@ -8,38 +8,39 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
-    let item: Item
-    @State private var stateItem: Item
+    @State private var item: Item
+    @State private var updatedItem: Item
     @State private var saveItemError = false
     
     init(item: Item) {
-        self.item = item
-        self._stateItem = State(initialValue: item)
+        self._item = State(initialValue: item)
+        self._updatedItem = State(initialValue: item)
     }
     
     var body: some View {
         VStack(spacing: 10) {
-            TitledTextField(title: "Title", text: $stateItem.title, placeholder: "What do you need to do?")
+            TitledTextField(title: "Title", text: $updatedItem.title, placeholder: "What do you need to do?")
             
             Divider()
             
-            TitledTextField(title: "Description", text: $stateItem.description, placeholder: "Add a brief description.")
+            TitledTextField(title: "Description", text: $updatedItem.description, placeholder: "Add a brief description.")
             
             Divider()
             
-            StatusSelector(itemStatus: $stateItem.status)
+            StatusSelector(itemStatus: $updatedItem.status)
             
             Divider()
             
-            PrioritySelector(itemPriority: $stateItem.priority)
+            PrioritySelector(itemPriority: $updatedItem.priority)
             
             Spacer()
             
-            if item.isDifferent(comparedTo: stateItem) {
+            if item.isDifferent(comparedTo: updatedItem) {
                 CTAButton(title: "Update") {
                     Task {
                         do {
-                            try await IM.shared.save(stateItem)
+                            try await IM.shared.save(updatedItem)
+                            item = updatedItem
                         } catch {
                             saveItemError = true
                         }
@@ -59,4 +60,5 @@ struct ItemDetailsView: View {
 
 #Preview {
     ItemDetailsView(item: Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium))
+        .environmentObject(ListVM())
 }
