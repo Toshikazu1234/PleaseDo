@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewItemView: View {
+    @Binding var path: NavigationPath
     @State private var vm = NewItemVM()
     @State private var saveItemError = false
     @State private var didSaveItem = false
@@ -48,7 +49,9 @@ struct NewItemView: View {
                 Text("Error saving new item.")
             }
             .alert("Success!", isPresented: $didSaveItem) {
-                Button("Dismiss", role: .cancel) {}
+                Button("Dismiss", role: .cancel) {
+                    path.removeLast()
+                }
             } message: {
                 Text("New item saved successfully.")
             }
@@ -59,5 +62,5 @@ struct NewItemView: View {
 }
 
 #Preview {
-    NewItemView()
+    NewItemView(path: .constant(NavigationPath()))
 }

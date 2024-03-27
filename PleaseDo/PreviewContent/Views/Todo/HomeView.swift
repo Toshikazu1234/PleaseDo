@@ -49,7 +49,7 @@ struct HomeView: View {
             .navigationDestination(for: Path.self) { path in
                 switch path {
                 case .newItem:
-                    NewItemView()
+                    NewItemView(path: $nav.path)
                 case .details(let item):
                     let i = item.index
                     switch item.status {
