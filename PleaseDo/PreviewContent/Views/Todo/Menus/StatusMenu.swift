@@ -1,5 +1,5 @@
 //
-//  PrioritySelector.swift
+//  StatusMenu.swift
 //  PleaseDo
 //
 //  Created by R K on 3/24/24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PrioritySelector: View {
-    @Binding var itemPriority: Priority
+struct StatusMenu: View {
+    @Binding var itemStatus: Status
     
     var body: some View {
         HStack {
@@ -18,13 +18,13 @@ struct PrioritySelector: View {
                     .foregroundStyle(.secondary)
                 
                 Menu {
-                    ForEach(Priority.allCases, id: \.self) {
+                    ForEach(Status.allCases, id: \.self) {
                         if $0 != .unknown {
-                            DisclosureGroupPriorityRow(priority: $0, itemPriority: $itemPriority)
+                            StatusMenuRow(status: $0, itemStatus: $itemStatus)
                         }
                     }
                 } label: {
-                    Text(itemPriority.rawValue)
+                    Text(itemStatus.rawValue)
                         .foregroundStyle(.primary)
                 }
             }
@@ -34,5 +34,5 @@ struct PrioritySelector: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PrioritySelector(itemPriority: .constant(.low))
+    StatusMenu(itemStatus: .constant(.todo))
 }

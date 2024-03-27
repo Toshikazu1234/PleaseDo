@@ -1,5 +1,5 @@
 //
-//  DisclosureGroupStatusRow.swift
+//  StatusMenuRow.swift
 //  PleaseDo
 //
 //  Created by R K on 3/24/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DisclosureGroupStatusRow: View {
+struct StatusMenuRow: View {
     let status: Status
     @Binding var itemStatus: Status
     
@@ -29,5 +29,5 @@ struct DisclosureGroupStatusRow: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    DisclosureGroupStatusRow(status: .todo, itemStatus: .constant(.todo))
+    StatusMenuRow(status: .todo, itemStatus: .constant(.todo))
 }

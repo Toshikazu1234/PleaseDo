@@ -28,10 +28,10 @@
 		50DE99222BB10E98006A091D /* NewItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99212BB10E98006A091D /* NewItemVM.swift */; };
 		50DE99242BB1123A006A091D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99232BB1123A006A091D /* Errors.swift */; };
 		50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99252BB118A5006A091D /* TitledTextField.swift */; };
-		50DE99282BB11B5D006A091D /* StatusSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99272BB11B5D006A091D /* StatusSelector.swift */; };
-		50DE992A2BB12293006A091D /* DisclosureGroupStatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99292BB12293006A091D /* DisclosureGroupStatusRow.swift */; };
-		50DE992E2BB12580006A091D /* PrioritySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE992D2BB12580006A091D /* PrioritySelector.swift */; };
-		50DE99302BB1259B006A091D /* DisclosureGroupPriorityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE992F2BB1259B006A091D /* DisclosureGroupPriorityRow.swift */; };
+		50DE99282BB11B5D006A091D /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99272BB11B5D006A091D /* StatusMenu.swift */; };
+		50DE992A2BB12293006A091D /* StatusMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99292BB12293006A091D /* StatusMenuRow.swift */; };
+		50DE992E2BB12580006A091D /* PriorityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE992D2BB12580006A091D /* PriorityMenu.swift */; };
+		50DE99302BB1259B006A091D /* PriorityMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE992F2BB1259B006A091D /* PriorityMenuRow.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
 		50EA6D572BAC9D4C00BFD5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EA6D562BAC9D4C00BFD5CF /* Assets.xcassets */; };
@@ -86,10 +86,10 @@
 		50DE99212BB10E98006A091D /* NewItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemVM.swift; sourceTree = "<group>"; };
 		50DE99232BB1123A006A091D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		50DE99252BB118A5006A091D /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
-		50DE99272BB11B5D006A091D /* StatusSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSelector.swift; sourceTree = "<group>"; };
-		50DE99292BB12293006A091D /* DisclosureGroupStatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupStatusRow.swift; sourceTree = "<group>"; };
-		50DE992D2BB12580006A091D /* PrioritySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrioritySelector.swift; sourceTree = "<group>"; };
-		50DE992F2BB1259B006A091D /* DisclosureGroupPriorityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupPriorityRow.swift; sourceTree = "<group>"; };
+		50DE99272BB11B5D006A091D /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
+		50DE99292BB12293006A091D /* StatusMenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuRow.swift; sourceTree = "<group>"; };
+		50DE992D2BB12580006A091D /* PriorityMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityMenu.swift; sourceTree = "<group>"; };
+		50DE992F2BB1259B006A091D /* PriorityMenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityMenuRow.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
 		50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,8 +165,7 @@
 				50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */,
 				50DE99252BB118A5006A091D /* TitledTextField.swift */,
 				501023122BB349BF003CCAE8 /* CTAButton.swift */,
-				50DE992B2BB1254C006A091D /* DisclosureGroups */,
-				50DE992C2BB1256A006A091D /* New Group */,
+				50DE992B2BB1254C006A091D /* Menus */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -180,22 +179,15 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		50DE992B2BB1254C006A091D /* DisclosureGroups */ = {
+		50DE992B2BB1254C006A091D /* Menus */ = {
 			isa = PBXGroup;
 			children = (
-				50DE99272BB11B5D006A091D /* StatusSelector.swift */,
-				50DE99292BB12293006A091D /* DisclosureGroupStatusRow.swift */,
+				50DE99272BB11B5D006A091D /* StatusMenu.swift */,
+				50DE99292BB12293006A091D /* StatusMenuRow.swift */,
+				50DE992D2BB12580006A091D /* PriorityMenu.swift */,
+				50DE992F2BB1259B006A091D /* PriorityMenuRow.swift */,
 			);
-			path = DisclosureGroups;
-			sourceTree = "<group>";
-		};
-		50DE992C2BB1256A006A091D /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				50DE992D2BB12580006A091D /* PrioritySelector.swift */,
-				50DE992F2BB1259B006A091D /* DisclosureGroupPriorityRow.swift */,
-			);
-			path = "New Group";
+			path = Menus;
 			sourceTree = "<group>";
 		};
 		50EA6D462BAC9D4A00BFD5CF = {
@@ -444,9 +436,9 @@
 				50DE99042BAF6353006A091D /* EmailTextField.swift in Sources */,
 				50DE990A2BAF675D006A091D /* LoginTitleView.swift in Sources */,
 				50DE990E2BAF6F72006A091D /* LoginFields.swift in Sources */,
-				50DE992A2BB12293006A091D /* DisclosureGroupStatusRow.swift in Sources */,
+				50DE992A2BB12293006A091D /* StatusMenuRow.swift in Sources */,
 				50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */,
-				50DE99282BB11B5D006A091D /* StatusSelector.swift in Sources */,
+				50DE99282BB11B5D006A091D /* StatusMenu.swift in Sources */,
 				50DE99122BAF7338006A091D /* TogglePromptView.swift in Sources */,
 				50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */,
 				50DE99102BAF7111006A091D /* SignUpFields.swift in Sources */,
@@ -456,11 +448,11 @@
 				50EA6D912BAD143E00BFD5CF /* NavItem.swift in Sources */,
 				50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */,
 				50DE990C2BAF67AD006A091D /* LoginButton.swift in Sources */,
-				50DE99302BB1259B006A091D /* DisclosureGroupPriorityRow.swift in Sources */,
+				50DE99302BB1259B006A091D /* PriorityMenuRow.swift in Sources */,
 				50DE99082BAF654D006A091D /* PasswordField.swift in Sources */,
 				50DE99062BAF6380006A091D /* KeyboardView.swift in Sources */,
 				50B861CA2BAD3B3B00CE00D9 /* LoginView.swift in Sources */,
-				50DE992E2BB12580006A091D /* PrioritySelector.swift in Sources */,
+				50DE992E2BB12580006A091D /* PriorityMenu.swift in Sources */,
 				50DE99202BAF9ED5006A091D /* ItemsManager.swift in Sources */,
 				50DE99242BB1123A006A091D /* Errors.swift in Sources */,
 				50EA6D872BACA9B100BFD5CF /* ListItemView.swift in Sources */,

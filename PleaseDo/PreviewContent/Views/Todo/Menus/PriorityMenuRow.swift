@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DisclosureGroupPriorityRow: View {
+struct PriorityMenuRow: View {
     let priority: Priority
     @Binding var itemPriority: Priority
     
@@ -29,5 +29,5 @@ struct DisclosureGroupPriorityRow: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    DisclosureGroupPriorityRow(priority: .low, itemPriority: .constant(.low))
+    PriorityMenuRow(priority: .low, itemPriority: .constant(.low))
 }

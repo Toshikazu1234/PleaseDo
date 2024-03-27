@@ -23,11 +23,11 @@ struct NewItemView: View {
             
             Divider()
             
-            StatusSelector(itemStatus: $vm.newItem.status)
+            StatusMenu(itemStatus: $vm.newItem.status)
             
             Divider()
             
-            PrioritySelector(itemPriority: $vm.newItem.priority)
+            PriorityMenu(itemPriority: $vm.newItem.priority)
             
             Spacer()
             
