@@ -11,7 +11,8 @@ import FirebaseFirestore
 
 protocol ItemsManagerListDelegate: AnyObject {
     func didFetchBatchItems(_ items: [Status: [Item]])
-    func didFetchItem(_ item: Item)
+    func didAddItem(_ item: Item)
+    func didUpdateItem(_ item: Item)
     func didDeleteItem(_ item: Item)
 }
 
@@ -50,10 +51,13 @@ final class ItemsManager {
                 let data = diff.document.data()
                 let item = Item(data: data)
                 switch diff.type {
-                case .added, .modified:
+                case .added:
                     allItems[item.status]?[item.id] = item
                     guard !isInitialFetch else { break }
-                    listDelegate?.didFetchItem(item)
+                    listDelegate?.didAddItem(item)
+                case .modified:
+                    allItems[item.status]?[item.id] = item
+                    listDelegate?.didUpdateItem(item)
                 case .removed:
                     allItems[item.status]?.removeValue(forKey: item.id)
                     guard !isInitialFetch else { break }

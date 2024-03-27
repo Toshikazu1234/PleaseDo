@@ -37,7 +37,23 @@ extension ListVM: ItemsManagerListDelegate {
         }
     }
     
-    func didFetchItem(_ item: Item) {
+    func didAddItem(_ item: Item) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            switch item.status {
+            case .todo:
+                todoItems.append(item)
+            case .inProgress:
+                inProgressItems.append(item)
+            case .done:
+                doneItems.append(item)
+            case .unknown:
+                unknownItems.append(item)
+            }
+        }
+    }
+    
+    func didUpdateItem(_ item: Item) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             if let i = todoItems.firstIndex(of: item) {
