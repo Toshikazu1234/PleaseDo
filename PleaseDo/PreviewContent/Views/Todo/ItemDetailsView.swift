@@ -11,6 +11,7 @@ struct ItemDetailsView: View {
     @State private var item: Item
     @State private var updatedItem: Item
     @State private var saveItemError = false
+    @State private var didUpdateItem = false
     
     init(item: Item) {
         self._item = State(initialValue: item)
@@ -40,7 +41,7 @@ struct ItemDetailsView: View {
                     Task {
                         do {
                             try await IM.shared.save(updatedItem)
-                            item = updatedItem
+                            didUpdateItem = true
                         } catch {
                             saveItemError = true
                         }
@@ -50,6 +51,13 @@ struct ItemDetailsView: View {
                     Button("Dismiss", role: .cancel) {}
                 } message: {
                     Text("Error updating item.")
+                }
+                .alert("Success!", isPresented: $didUpdateItem) {
+                    Button("Dismiss", role: .cancel) {
+                        item = updatedItem
+                    }
+                } message: {
+                    Text("Item changes updated successfully.")
                 }
             }
         }
