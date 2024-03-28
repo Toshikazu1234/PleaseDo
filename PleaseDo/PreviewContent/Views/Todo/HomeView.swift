@@ -10,21 +10,21 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var loginVM: LoginVM
     @StateObject private var vm = ListVM()
-    @State private var nav = NavigationManager()
+    @State private var path: [NavPath] = []
     @State private var showLogout = false
     
     var body: some View {
-        NavigationStack(path: $nav.path) {
+        NavigationStack(path: $path) {
             ZStack {
                 Color.background
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(status: .todo, items: $vm.todoItems)
+                    ListView(status: .todo, items: $vm.todoItems, path: $path)
                     
-                    ListView(status: .inProgress, items: $vm.inProgressItems)
+                    ListView(status: .inProgress, items: $vm.inProgressItems, path: $path)
                     
-                    ListView(status: .done, items: $vm.doneItems)
+                    ListView(status: .done, items: $vm.doneItems, path: $path)
                 }
                 .tabViewStyle(.page)
             }
@@ -39,29 +39,19 @@ struct HomeView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        nav.path.append(Path.newItem)
+                        path.append(NavPath.newItem)
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: Path.self) { path in
+            .navigationDestination(for: NavPath.self) { path in
                 switch path {
                 case .newItem:
-                    NewItemView(path: $nav.path)
+                    NewItemView(path: $path)
                 case .details(let item):
-                    let i = item.index
-                    switch item.status {
-                    case .todo:
-                        ItemDetailsView(item: vm.todoItems[i])
-                    case .inProgress:
-                        ItemDetailsView(item: vm.inProgressItems[i])
-                    case .done:
-                        ItemDetailsView(item: vm.doneItems[i])
-                    case .unknown:
-                        ItemDetailsView(item: vm.unknownItems[i])
-                    }
+                    ItemDetailsView(item: item)
                 }
             }
             .confirmationDialog("Continue signing out?", isPresented: $showLogout) {

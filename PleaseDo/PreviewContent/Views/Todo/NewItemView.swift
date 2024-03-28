@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewItemView: View {
-    @Binding var path: NavigationPath
+    @Binding var path: [NavPath]
     @State private var vm = NewItemVM()
     @State private var saveItemError = false
     @State private var didSaveItem = false
@@ -62,5 +62,5 @@ struct NewItemView: View {
 }
 
 #Preview {
-    NewItemView(path: .constant(NavigationPath()))
+    NewItemView(path: .constant([]))
 }

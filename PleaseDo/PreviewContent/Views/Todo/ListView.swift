@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     let status: Status
     @Binding var items: [Item]
+    @Binding var path: [NavPath]
     private let titleRadius: CGFloat = 10
     
     var body: some View {
@@ -30,14 +31,8 @@ struct ListView: View {
                 .padding(.top)
                 
             List {
-                ForEach(0..<items.count, id: \.self) { i in
-                    let item = items[i]
-                    let navItem = NavItem(
-                        status: item.status,
-                        item: item,
-                        index: i)
-                    let path = Path.details(navItem)
-                    NavigationLink(value: path) {
+                ForEach(items, id: \.self) { item in
+                    NavigationLink(value: NavPath.details(item)) {
                         ListItemView(item: item, height: 100)
                     }
                 }
@@ -56,6 +51,6 @@ struct ListView: View {
         ListView(status: .todo, items: .constant([
             Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium),
             Item(id: "123abc", authorId: "123456789", title: "Have A Snack", description: "Small snacks throughout the day are a great way to increase blood sugar for people with hypoglycemia", status: .todo, priority: .low)
-        ]))
+        ]), path: .constant([]))
     }
 }
