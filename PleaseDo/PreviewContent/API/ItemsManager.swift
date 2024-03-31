@@ -26,7 +26,7 @@ final class ItemsManager {
     private var listener: ListenerRegistration?
     private var isInitialFetch = true
     
-    /// Dictionary of dictionaries to sort all unique items by status
+    /// Dictionary of dictionaries to sort all unique items by status.  Only used for initial fetch.
     /// - Parameters:
     ///   - Status: item.status
     ///   - String: item.id
@@ -83,6 +83,9 @@ final class ItemsManager {
             })
         }
         listDelegate?.didFetchBatchItems(sortedItems)
+        allItems.keys.forEach {
+            allItems[$0] = [:]
+        }
     }
     
     /// Writes to the Firebase collection "Items".
