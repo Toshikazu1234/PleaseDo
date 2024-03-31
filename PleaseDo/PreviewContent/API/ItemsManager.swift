@@ -52,15 +52,19 @@ final class ItemsManager {
                 let item = Item(data: data)
                 switch diff.type {
                 case .added:
-                    allItems[item.status]?[item.id] = item
-                    guard !isInitialFetch else { break }
-                    listDelegate?.didAddItem(item)
+                    if isInitialFetch {
+                        allItems[item.status]?[item.id] = item
+                    } else {
+                        listDelegate?.didAddItem(item)
+                    }
                 case .modified:
-                    allItems[item.status]?[item.id] = item
+                    /// We don't need to update the item if the update was made by
+                    /// the current user because our `ListVM` bindable properties
+                    /// should already have local updates.
+                    guard user.uid != item.lastUpdatedBy else { return }
                     listDelegate?.didUpdateItem(item)
                 case .removed:
-                    allItems[item.status]?.removeValue(forKey: item.id)
-                    guard !isInitialFetch else { break }
+                    guard user.uid != item.lastUpdatedBy else { return }
                     listDelegate?.didDeleteItem(item)
                 }
             }
