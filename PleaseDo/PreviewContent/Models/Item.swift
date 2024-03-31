@@ -16,6 +16,7 @@ struct Item: Identifiable, Equatable, Hashable {
     var startDate: Date = .now
     var status: Status
     var priority: Priority
+    var lastUpdatedBy: String
     var isComplete: Bool = false
     
     func hash(into hasher: inout Hasher) {
@@ -27,16 +28,17 @@ struct Item: Identifiable, Equatable, Hashable {
     }
     
     enum DBKeys: String {
-        case id, authorId, title, description, startDate, status, priority, isComplete
+        case id, authorId, title, description, startDate, status, priority, lastUpdatedBy, isComplete
     }
     
-    init(id: String, authorId: String, title: String, description: String, status: Status, priority: Priority) {
+    init(id: String, authorId: String, title: String, description: String, status: Status, priority: Priority, lastUpdatedBy: String) {
         self.id = id
         self.authorId = authorId
         self.title = title
         self.description = description
         self.status = status
         self.priority = priority
+        self.lastUpdatedBy = lastUpdatedBy
     }
     
     init(data: [String: Any]) {
@@ -49,6 +51,7 @@ struct Item: Identifiable, Equatable, Hashable {
         self.status = Status(statusString)
         let priorityString = data[DBKeys.priority.rawValue] as! String
         self.priority = Priority(priorityString)
+        self.lastUpdatedBy = data[DBKeys.lastUpdatedBy.rawValue] as! String
         self.isComplete = data[DBKeys.isComplete.rawValue] as! Bool
     }
     

@@ -37,5 +37,5 @@ struct ListItemView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    ListItemView(item: Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium), height: 100)
+    ListItemView(item: Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium, lastUpdatedBy: "123456789"), height: 100)
 }

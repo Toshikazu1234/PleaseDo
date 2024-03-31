@@ -51,8 +51,8 @@ struct ListView: View {
             .ignoresSafeArea()
         
         ListView(status: .todo, items: .constant([
-            Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium),
-            Item(id: "123abc", authorId: "123456789", title: "Have A Snack", description: "Small snacks throughout the day are a great way to increase blood sugar for people with hypoglycemia", status: .todo, priority: .low)
+            Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium, lastUpdatedBy: "123456789"),
+            Item(id: "123abc", authorId: "123456789", title: "Have A Snack", description: "Small snacks throughout the day are a great way to increase blood sugar for people with hypoglycemia", status: .todo, priority: .low, lastUpdatedBy: "123456789")
         ]), path: .constant([]))
     }
 }
