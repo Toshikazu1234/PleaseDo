@@ -50,8 +50,18 @@ struct HomeView: View {
                 switch path {
                 case .newItem:
                     NewItemView(path: $path)
-                case .details(let item):
-                    ItemDetailsView(item: item)
+                case .details(let navItem):
+                    let i = navItem.index
+                    switch navItem.item.status {
+                    case .todo:
+                        ItemDetailsView(item: $vm.todoItems[i], initialValue: vm.todoItems[i])
+                    case .inProgress:
+                        ItemDetailsView(item: $vm.inProgressItems[i], initialValue: vm.inProgressItems[i])
+                    case .done:
+                        ItemDetailsView(item: $vm.doneItems[i], initialValue: vm.doneItems[i])
+                    case .unknown:
+                        EmptyView()
+                    }
                 }
             }
             .confirmationDialog("Continue signing out?", isPresented: $showLogout) {
