@@ -18,7 +18,8 @@ import FirebaseAuth
         title: "",
         description: "",
         status: .todo,
-        priority: .low)
+        priority: .low, 
+        lastUpdatedBy: "")
     
     init() {
         guard let user = auth.currentUser else { return }
@@ -28,7 +29,8 @@ import FirebaseAuth
             title: "",
             description: "",
             status: .todo,
-            priority: .low)
+            priority: .low, 
+            lastUpdatedBy: "")
     }
     
     func saveNewItem() async throws {
