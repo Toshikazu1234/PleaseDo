@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501023122BB349BF003CCAE8 /* CTAButton.swift */; };
+		50580E682BB891C000E62115 /* NavItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50580E672BB891C000E62115 /* NavItem.swift */; };
 		50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C32BAD38B500CE00D9 /* HomeView.swift */; };
 		50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C52BAD393800CE00D9 /* LoginVM.swift */; };
 		50B861CA2BAD3B3B00CE00D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C92BAD3B3B00CE00D9 /* LoginView.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		501023122BB349BF003CCAE8 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
+		50580E672BB891C000E62115 /* NavItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavItem.swift; sourceTree = "<group>"; };
 		50B861C32BAD38B500CE00D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		50B861C52BAD393800CE00D9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		50B861C92BAD3B3B00CE00D9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				50EA6D842BACA6EC00BFD5CF /* Item.swift */,
+				50580E672BB891C000E62115 /* NavItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				50EA6D812BAC9E4A00BFD5CF /* ListView.swift in Sources */,
 				50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */,
 				50EA6D832BACA16300BFD5CF /* Extensions.swift in Sources */,
+				50580E682BB891C000E62115 /* NavItem.swift in Sources */,
 				501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */,
 				50EA6D8F2BAD089600BFD5CF /* NavPath.swift in Sources */,
 				50FB66D82BB3DDEA006DE0D0 /* PriorityMenuRow.swift in Sources */,
