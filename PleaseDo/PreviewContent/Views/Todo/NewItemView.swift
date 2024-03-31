@@ -11,25 +11,26 @@ struct NewItemView: View {
     @Binding var path: [NavPath]
     @State private var vm = NewItemVM()
     @State private var saveItemError = false
+    @State private var didMakeChanges = false
     @State private var didSaveItem = false
     
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
             
-            TitledTextField(title: "Title", text: $vm.newItem.title, placeholder: "What do you need to do?")
+            TitledTextField(title: "Title", text: $vm.newItem.title, placeholder: "What do you need to do?", didMakeChanges: $didMakeChanges)
             
             Divider()
             
-            TitledTextField(title: "Description", text: $vm.newItem.description, placeholder: "Add a brief description.")
+            TitledTextField(title: "Description", text: $vm.newItem.description, placeholder: "Add a brief description.", didMakeChanges: $didMakeChanges)
             
             Divider()
             
-            StatusMenu(itemStatus: $vm.newItem.status)
+            StatusMenu(itemStatus: $vm.newItem.status, didMakeChanges: $didMakeChanges)
             
             Divider()
             
-            PriorityMenu(itemPriority: $vm.newItem.priority)
+            PriorityMenu(itemPriority: $vm.newItem.priority, didMakeChanges: $didMakeChanges)
             
             Spacer()
             

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PriorityMenu: View {
     @Binding var itemPriority: Priority
+    @Binding var didMakeChanges: Bool
     
     var body: some View {
         HStack {
@@ -20,7 +21,7 @@ struct PriorityMenu: View {
                 Menu {
                     ForEach(Priority.allCases, id: \.self) {
                         if $0 != .unknown {
-                            PriorityMenuRow(priority: $0, itemPriority: $itemPriority)
+                            PriorityMenuRow(priority: $0, itemPriority: $itemPriority, didMakeChanges: $didMakeChanges)
                         }
                     }
                 } label: {
@@ -34,5 +35,5 @@ struct PriorityMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PriorityMenu(itemPriority: .constant(.low))
+    PriorityMenu(itemPriority: .constant(.low), didMakeChanges: .constant(false))
 }

@@ -10,10 +10,13 @@ import SwiftUI
 struct StatusMenuRow: View {
     let status: Status
     @Binding var itemStatus: Status
+    @Binding var didMakeChanges: Bool
     
     var body: some View {
         Button {
             itemStatus = status
+            print(itemStatus)
+            didMakeChanges = true
         } label: {
             HStack {
                 Text(status.rawValue)
@@ -29,5 +32,5 @@ struct StatusMenuRow: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    StatusMenuRow(status: .todo, itemStatus: .constant(.todo))
+    StatusMenuRow(status: .todo, itemStatus: .constant(.todo), didMakeChanges: .constant(false))
 }

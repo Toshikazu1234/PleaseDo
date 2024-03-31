@@ -10,10 +10,12 @@ import SwiftUI
 struct PriorityMenuRow: View {
     let priority: Priority
     @Binding var itemPriority: Priority
+    @Binding var didMakeChanges: Bool
     
     var body: some View {
         Button {
             itemPriority = priority
+            didMakeChanges = true
         } label: {
             HStack {
                 Text(priority.rawValue)
@@ -29,5 +31,5 @@ struct PriorityMenuRow: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PriorityMenuRow(priority: .low, itemPriority: .constant(.low))
+    PriorityMenuRow(priority: .low, itemPriority: .constant(.low), didMakeChanges: .constant(false))
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatusMenu: View {
     @Binding var itemStatus: Status
+    @Binding var didMakeChanges: Bool
     
     var body: some View {
         HStack {
@@ -18,11 +19,11 @@ struct StatusMenu: View {
                     .foregroundStyle(.secondary)
                 
                 Menu {
-                    ForEach(Status.allCases, id: \.self) {
-                        if $0 != .unknown {
-                            StatusMenuRow(status: $0, itemStatus: $itemStatus)
-                        }
-                    }
+                    StatusMenuRow(status: .todo, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
+                    
+                    StatusMenuRow(status: .inProgress, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
+                    
+                    StatusMenuRow(status: .done, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
                 } label: {
                     Text(itemStatus.rawValue)
                         .foregroundStyle(.primary)
@@ -34,5 +35,5 @@ struct StatusMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    StatusMenu(itemStatus: .constant(.todo))
+    StatusMenu(itemStatus: .constant(.todo), didMakeChanges: .constant(false))
 }
