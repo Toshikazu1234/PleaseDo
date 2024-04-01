@@ -64,6 +64,7 @@ struct Item: Identifiable, Equatable, Hashable {
         data[DBKeys.startDate.rawValue] = Timestamp(date: .now)
         data[DBKeys.status.rawValue] = status.rawValue
         data[DBKeys.priority.rawValue] = priority.rawValue
+        data[DBKeys.lastUpdatedBy.rawValue] = lastUpdatedBy
         data[DBKeys.isComplete.rawValue] = false
         return data
     }
