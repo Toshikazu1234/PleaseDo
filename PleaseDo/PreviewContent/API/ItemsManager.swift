@@ -95,6 +95,9 @@ final class ItemsManager {
     /// Writes to the Firebase collection "Items".
     /// Use to save a new item AND to update an existing item by overwriting it.
     func save(_ item: Item) async throws {
+        guard let user = Auth.auth().currentUser else { throw Errors.noCurrentUser }
+        var item = item
+        item.lastUpdatedBy = user.uid
         do {
             try await itemsCollection.document(item.id).setData(item.toObject())
             print("Item saved successfully!")
