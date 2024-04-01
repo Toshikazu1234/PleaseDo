@@ -17,7 +17,6 @@ struct Item: Identifiable, Equatable, Hashable {
     var status: Status
     var priority: Priority
     var lastUpdatedBy: String
-    var isComplete: Bool = false
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -28,7 +27,7 @@ struct Item: Identifiable, Equatable, Hashable {
     }
     
     enum DBKeys: String {
-        case id, authorId, title, description, startDate, status, priority, lastUpdatedBy, isComplete
+        case id, authorId, title, description, startDate, status, priority, lastUpdatedBy
     }
     
     init(id: String, authorId: String, title: String, description: String, status: Status, priority: Priority, lastUpdatedBy: String) {
@@ -52,7 +51,6 @@ struct Item: Identifiable, Equatable, Hashable {
         let priorityString = data[DBKeys.priority.rawValue] as! String
         self.priority = Priority(priorityString)
         self.lastUpdatedBy = data[DBKeys.lastUpdatedBy.rawValue] as! String
-        self.isComplete = data[DBKeys.isComplete.rawValue] as! Bool
     }
     
     func toObject() -> [String: Any] {
@@ -65,7 +63,6 @@ struct Item: Identifiable, Equatable, Hashable {
         data[DBKeys.status.rawValue] = status.rawValue
         data[DBKeys.priority.rawValue] = priority.rawValue
         data[DBKeys.lastUpdatedBy.rawValue] = lastUpdatedBy
-        data[DBKeys.isComplete.rawValue] = false
         return data
     }
     
@@ -77,7 +74,6 @@ struct Item: Identifiable, Equatable, Hashable {
         || startDate != item.startDate
         || status != item.status
         || priority != item.priority
-        || isComplete != item.isComplete
     }
 }
 
