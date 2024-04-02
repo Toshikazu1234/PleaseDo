@@ -46,6 +46,7 @@ struct ItemDetailsView: View {
                             didSaveUpdates = true
                         } catch {
                             saveItemError = true
+                            updatedItem = initialItem
                         }
                     }
                 }
