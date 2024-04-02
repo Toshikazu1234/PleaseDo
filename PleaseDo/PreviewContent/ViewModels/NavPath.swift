@@ -11,3 +11,9 @@ enum NavPath: Hashable {
     case newItem
     case details(NavItem)
 }
+
+extension [NavPath] {
+    mutating func popToRoot() {
+        self = []
+    }
+}
