@@ -20,6 +20,30 @@ final class ListVM: ObservableObject {
         IM.shared.listDelegate = self
     }
     
+    func updatePriority() {
+        guard !initialItem.isEmpty, !updatedItem.isEmpty else { return }
+        if initialItem.priority != updatedItem.priority {
+            switch updatedItem.status {
+            case .todo:
+                if let i = todoItems.firstIndex(of: updatedItem) {
+                    todoItems[i] = updatedItem
+                }
+            case .inProgress:
+                if let i = inProgressItems.firstIndex(of: updatedItem) {
+                    inProgressItems[i] = updatedItem
+                }
+            case .done:
+                if let i = doneItems.firstIndex(of: updatedItem) {
+                    doneItems[i] = updatedItem
+                }
+            case .unknown:
+                if let i = unknownItems.firstIndex(of: updatedItem) {
+                    unknownItems[i] = updatedItem
+                }
+            }
+        }
+    }
+    
     func updateStatus() {
         guard !initialItem.title.isEmpty, !updatedItem.title.isEmpty else { return }
         if initialItem.status != updatedItem.status {
