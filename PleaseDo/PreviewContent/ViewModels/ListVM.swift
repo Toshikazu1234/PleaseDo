@@ -15,6 +15,7 @@ final class ListVM: ObservableObject {
     
     @Published var initialItem = Item.empty()
     @Published var updatedItem = Item.empty()
+    
     private var shouldUpdateItem: Bool {
         return initialItem.title != updatedItem.title
         || initialItem.description != updatedItem.description
