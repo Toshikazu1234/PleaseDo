@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StatusMenu: View {
     @EnvironmentObject var vm: ListVM
-    let didChange: () -> Void
     
     var body: some View {
         HStack {
@@ -24,7 +23,6 @@ struct StatusMenu: View {
                     }
                 }
                 .pickerStyle(.menu)
-                .onChange(of: vm.updatedItem.status, didChange)
             }
             Spacer()
         }
@@ -32,5 +30,5 @@ struct StatusMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    StatusMenu() {}
+    StatusMenu()
 }

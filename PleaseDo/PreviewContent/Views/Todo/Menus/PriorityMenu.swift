@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PriorityMenu: View {
     @EnvironmentObject var vm: ListVM
-    let didChange: () -> Void
     
     var body: some View {
         HStack {
@@ -24,7 +23,6 @@ struct PriorityMenu: View {
                     }
                 }
                 .pickerStyle(.menu)
-                .onChange(of: vm.updatedItem.priority, didChange)
             }
             Spacer()
         }
@@ -32,5 +30,5 @@ struct PriorityMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PriorityMenu() {}
+    PriorityMenu()
 }

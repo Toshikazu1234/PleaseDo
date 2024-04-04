@@ -17,19 +17,19 @@ struct NewItemView: View {
         VStack(spacing: 10) {
             Spacer()
             
-            TitledTextField(title: "Title", text: $vm.newItem.title, placeholder: "What do you need to do?") {}
+            TitledTextField(title: "Title", text: $vm.newItem.title, placeholder: "What do you need to do?")
             
             Divider()
             
-            TitledTextField(title: "Description", text: $vm.newItem.description, placeholder: "Add a brief description.") {}
+            TitledTextField(title: "Description", text: $vm.newItem.description, placeholder: "Add a brief description.")
             
             Divider()
             
-            StatusMenu() {}
+            StatusMenu()
             
             Divider()
             
-            PriorityMenu() {}
+            PriorityMenu()
             
             Spacer()
             
