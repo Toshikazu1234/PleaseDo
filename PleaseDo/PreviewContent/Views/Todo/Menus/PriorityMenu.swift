@@ -19,7 +19,11 @@ struct PriorityMenu: View {
                 
                 Picker("Priority", selection: $vm.updatedItem.priority) {
                     ForEach(Priority.allCases, id: \.self) {
-                        Text($0.rawValue)
+                        if $0 == .unknown {
+                            EmptyView()
+                        } else {
+                            Text($0.rawValue)
+                        }                        
                     }
                 }
                 .pickerStyle(.menu)

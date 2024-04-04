@@ -19,7 +19,11 @@ struct StatusMenu: View {
                 
                 Picker("Status", selection: $vm.updatedItem.status) {
                     ForEach(Status.allCases, id: \.self) {
-                        Text($0.rawValue)
+                        if $0 == .unknown {
+                            EmptyView()
+                        } else {
+                            Text($0.rawValue)
+                        }                        
                     }
                 }
                 .pickerStyle(.menu)
