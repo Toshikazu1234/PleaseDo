@@ -17,10 +17,7 @@ final class ListVM: ObservableObject {
     @Published var updatedItem = Item.empty()
     
     private var shouldUpdateItem: Bool {
-        return initialItem.title != updatedItem.title
-        || initialItem.description != updatedItem.description
-        || initialItem.status != updatedItem.status
-        || initialItem.priority != updatedItem.priority
+        return initialItem.isDifferent(comparedTo: updatedItem)
     }
     
     init() {
