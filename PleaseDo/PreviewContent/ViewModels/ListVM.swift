@@ -13,8 +13,53 @@ final class ListVM: ObservableObject {
     @Published var doneItems: [Item] = []
     @Published var unknownItems: [Item] = []
     
+    @Published var initialItem = Item.empty()
+    @Published var updatedItem = Item.empty()
+    
     init() {
         IM.shared.listDelegate = self
+    }
+    
+    func updateStatus() {
+        guard !initialItem.title.isEmpty, !updatedItem.title.isEmpty else { return }
+        if initialItem.status != updatedItem.status {
+            remove(initialItem)
+            append(updatedItem)
+        }
+    }
+    
+    private func remove(_ item: Item) {
+        switch item.status {
+        case .todo:
+            if let i = todoItems.firstIndex(of: item) {
+                todoItems.remove(at: i)
+            }
+        case .inProgress:
+            if let i = inProgressItems.firstIndex(of: item) {
+                inProgressItems.remove(at: i)
+            }
+        case .done:
+            if let i = doneItems.firstIndex(of: item) {
+                doneItems.remove(at: i)
+            }
+        case .unknown:
+            if let i = unknownItems.firstIndex(of: item) {
+                unknownItems.remove(at: i)
+            }
+        }
+    }
+    
+    private func append(_ item: Item) {
+        switch item.status {
+        case .todo:
+            todoItems.append(item)
+        case .inProgress:
+            inProgressItems.append(item)
+        case .done:
+            doneItems.append(item)
+        case .unknown:
+            unknownItems.append(item)
+        }
     }
 }
 
