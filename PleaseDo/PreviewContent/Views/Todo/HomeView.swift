@@ -50,15 +50,17 @@ struct HomeView: View {
                 switch path {
                 case .newItem:
                     NewItemView(path: $path)
-                case .details(let navItem):
-                    let i = navItem.index
-                    switch navItem.item.status {
+                case .details(let item):
+                    switch item.status {
                     case .todo:
-                        ItemDetailsView(item: $vm.todoItems[i], initialValue: vm.todoItems[i])
+                        ItemDetailsView(initialItem: item, path: $path)
+                            .environmentObject(vm)
                     case .inProgress:
-                        ItemDetailsView(item: $vm.inProgressItems[i], initialValue: vm.inProgressItems[i])
+                        ItemDetailsView(initialItem: item, path: $path)
+                            .environmentObject(vm)
                     case .done:
-                        ItemDetailsView(item: $vm.doneItems[i], initialValue: vm.doneItems[i])
+                        ItemDetailsView(initialItem: item, path: $path)
+                            .environmentObject(vm)
                     case .unknown:
                         EmptyView()
                     }

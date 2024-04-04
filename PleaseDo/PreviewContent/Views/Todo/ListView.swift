@@ -29,14 +29,10 @@ struct ListView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top)
-                
-            List {
-                ForEach(0..<items.count, id: \.self) {
-                    let item = items[$0]
-                    let navItem = NavItem(item: item, index: $0)
-                    NavigationLink(value: NavPath.details(navItem)) {
-                        ListItemView(item: item, height: 100)
-                    }
+            
+            List($items) { $item in
+                NavigationLink(value: NavPath.details(item)) {
+                    ListItemView(item: item, height: 100)
                 }
             }
         }

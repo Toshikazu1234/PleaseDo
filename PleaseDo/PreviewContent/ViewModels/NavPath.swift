@@ -9,7 +9,7 @@ import SwiftUI
 
 enum NavPath: Hashable {
     case newItem
-    case details(NavItem)
+    case details(Item)
 }
 
 extension [NavPath] {
