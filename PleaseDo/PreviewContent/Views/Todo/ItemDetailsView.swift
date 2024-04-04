@@ -25,11 +25,11 @@ struct ItemDetailsView: View {
             
             Divider()
             
-            StatusMenu()
+            StatusMenu(status: $vm.updatedItem.status)
             
             Divider()
             
-            PriorityMenu()
+            PriorityMenu(priority: $vm.updatedItem.priority)
             
             Spacer()
             

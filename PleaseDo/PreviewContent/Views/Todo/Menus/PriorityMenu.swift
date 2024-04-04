@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PriorityMenu: View {
-    @EnvironmentObject var vm: ListVM
+    @Binding var priority: Priority
     
     var body: some View {
         HStack {
@@ -17,13 +17,13 @@ struct PriorityMenu: View {
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 
-                Picker("Priority", selection: $vm.updatedItem.priority) {
+                Picker("Priority", selection: $priority) {
                     ForEach(Priority.allCases, id: \.self) {
                         if $0 == .unknown {
                             EmptyView()
                         } else {
                             Text($0.rawValue)
-                        }                        
+                        }
                     }
                 }
                 .pickerStyle(.menu)
@@ -34,5 +34,5 @@ struct PriorityMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PriorityMenu()
+    PriorityMenu(priority: .constant(.low))
 }
