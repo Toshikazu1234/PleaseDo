@@ -26,6 +26,10 @@ struct Item: Identifiable, Equatable, Hashable {
         return lhs.id == rhs.id
     }
     
+    var isEmpty: Bool {
+        self == Item.empty()
+    }
+    
     enum DBKeys: String {
         case id, authorId, title, description, startDate, status, priority, lastUpdatedBy
     }
