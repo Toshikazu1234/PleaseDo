@@ -75,6 +75,10 @@ struct Item: Identifiable, Equatable, Hashable {
         || status != item.status
         || priority != item.priority
     }
+    
+    static func empty() -> Item {
+        return Item(id: "", authorId: "", title: "", description: "", status: .todo, priority: .low, lastUpdatedBy: "")
+    }
 }
 
 enum Status: String, CaseIterable {
