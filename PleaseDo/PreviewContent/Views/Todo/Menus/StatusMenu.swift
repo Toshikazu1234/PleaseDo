@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StatusMenu: View {
-    @Binding var itemStatus: Status
-    @Binding var didMakeChanges: Bool
+    @EnvironmentObject var vm: ListVM
+    let didChange: () -> Void
     
     var body: some View {
         HStack {
@@ -18,16 +18,13 @@ struct StatusMenu: View {
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 
-                Menu {
-                    StatusMenuRow(status: .todo, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
-                    
-                    StatusMenuRow(status: .inProgress, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
-                    
-                    StatusMenuRow(status: .done, itemStatus: $itemStatus, didMakeChanges: $didMakeChanges)
-                } label: {
-                    Text(itemStatus.rawValue)
-                        .foregroundStyle(.primary)
+                Picker("Status", selection: $vm.updatedItem.status) {
+                    ForEach(Status.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
                 }
+                .pickerStyle(.menu)
+                .onChange(of: vm.updatedItem.status, didChange)
             }
             Spacer()
         }
@@ -35,5 +32,5 @@ struct StatusMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    StatusMenu(itemStatus: .constant(.todo), didMakeChanges: .constant(false))
+    StatusMenu() {}
 }

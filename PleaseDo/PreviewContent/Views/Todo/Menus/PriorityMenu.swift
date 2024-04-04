@@ -8,26 +8,23 @@
 import SwiftUI
 
 struct PriorityMenu: View {
-    @Binding var itemPriority: Priority
-    @Binding var didMakeChanges: Bool
+    @EnvironmentObject var vm: ListVM
+    let didChange: () -> Void
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Status:")
+                Text("Priority:")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 
-                Menu {
+                Picker("Priority", selection: $vm.updatedItem.priority) {
                     ForEach(Priority.allCases, id: \.self) {
-                        if $0 != .unknown {
-                            PriorityMenuRow(priority: $0, itemPriority: $itemPriority, didMakeChanges: $didMakeChanges)
-                        }
+                        Text($0.rawValue)
                     }
-                } label: {
-                    Text(itemPriority.rawValue)
-                        .foregroundStyle(.primary)
                 }
+                .pickerStyle(.menu)
+                .onChange(of: vm.updatedItem.priority, didChange)
             }
             Spacer()
         }
@@ -35,5 +32,5 @@ struct PriorityMenu: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    PriorityMenu(itemPriority: .constant(.low), didMakeChanges: .constant(false))
+    PriorityMenu() {}
 }
