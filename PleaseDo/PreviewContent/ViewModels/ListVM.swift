@@ -15,41 +15,43 @@ final class ListVM: ObservableObject {
     
     @Published var initialItem = Item.empty()
     @Published var updatedItem = Item.empty()
+    private var shouldUpdateItem: Bool {
+        return initialItem.title != updatedItem.title
+        || initialItem.description != updatedItem.description
+        || initialItem.status != updatedItem.status
+        || initialItem.priority != updatedItem.priority
+    }
     
     init() {
         IM.shared.listDelegate = self
     }
     
-    func updatePriority() {
-        guard !initialItem.isEmpty, !updatedItem.isEmpty else { return }
-        if initialItem.priority != updatedItem.priority {
-            switch updatedItem.status {
-            case .todo:
-                if let i = todoItems.firstIndex(of: updatedItem) {
-                    todoItems[i] = updatedItem
-                }
-            case .inProgress:
-                if let i = inProgressItems.firstIndex(of: updatedItem) {
-                    inProgressItems[i] = updatedItem
-                }
-            case .done:
-                if let i = doneItems.firstIndex(of: updatedItem) {
-                    doneItems[i] = updatedItem
-                }
-            case .unknown:
-                if let i = unknownItems.firstIndex(of: updatedItem) {
-                    unknownItems[i] = updatedItem
-                }
+    func updateItem() {
+        guard !initialItem.isEmpty, !updatedItem.isEmpty, shouldUpdateItem else { return }
+        switch updatedItem.status {
+        case .todo:
+            if let i = todoItems.firstIndex(of: updatedItem) {
+                todoItems[i] = updatedItem
+            }
+        case .inProgress:
+            if let i = inProgressItems.firstIndex(of: updatedItem) {
+                inProgressItems[i] = updatedItem
+            }
+        case .done:
+            if let i = doneItems.firstIndex(of: updatedItem) {
+                doneItems[i] = updatedItem
+            }
+        case .unknown:
+            if let i = unknownItems.firstIndex(of: updatedItem) {
+                unknownItems[i] = updatedItem
             }
         }
     }
     
     func updateStatus() {
-        guard !initialItem.isEmpty, !updatedItem.isEmpty else { return }
-        if initialItem.status != updatedItem.status {
-            remove(initialItem)
-            append(updatedItem)
-        }
+        guard !initialItem.isEmpty, !updatedItem.isEmpty, shouldUpdateItem else { return }
+        remove(initialItem)
+        append(updatedItem)
     }
     
     private func remove(_ item: Item) {
