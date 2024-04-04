@@ -31,9 +31,9 @@ struct ListView: View {
                 .padding(.top)
                 
             List {
-                ForEach(0..<items.count, id: \.self) { i in
-                    let item = items[i]
-                    let navItem = NavItem(item: item, index: i)
+                ForEach(0..<items.count, id: \.self) {
+                    let item = items[$0]
+                    let navItem = NavItem(item: item, index: $0)
                     NavigationLink(value: NavPath.details(navItem)) {
                         ListItemView(item: item, height: 100)
                     }
