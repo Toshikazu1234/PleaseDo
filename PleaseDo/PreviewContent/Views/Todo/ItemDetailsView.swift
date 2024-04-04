@@ -8,45 +8,42 @@
 import SwiftUI
 
 struct ItemDetailsView: View {
-    @State private var initialItem: Item
-    @Binding var updatedItem: Item
+    @EnvironmentObject var vm: ListVM
+    let initialItem: Item
+    @Binding var path: [NavPath]
     
     @State private var saveItemError = false
-    @State private var didMakeChanges = false
     @State private var didSaveUpdates = false
-    
-    init(item: Binding<Item>, initialValue: Item) {
-        self._updatedItem = item
-        self._initialItem = State(initialValue: initialValue)
-    }
     
     var body: some View {
         VStack(spacing: 10) {
-            TitledTextField(title: "Title", text: $updatedItem.title, placeholder: "What do you need to do?", didMakeChanges: $didMakeChanges)
+            TitledTextField(title: "Title", text: $vm.updatedItem.title, placeholder: "What do you need to do?")
             
             Divider()
             
-            TitledTextField(title: "Description", text: $updatedItem.description, placeholder: "Add a brief description.", didMakeChanges: $didMakeChanges)
+            TitledTextField(title: "Description", text: $vm.updatedItem.description, placeholder: "Add a brief description.")
             
             Divider()
             
-            StatusMenu(itemStatus: $updatedItem.status, didMakeChanges: $didMakeChanges)
+            StatusMenu()
             
             Divider()
             
-            PriorityMenu(itemPriority: $updatedItem.priority, didMakeChanges: $didMakeChanges)
+            PriorityMenu()
             
             Spacer()
             
-            if initialItem.isDifferent(comparedTo: updatedItem) {
+            if vm.initialItem.isDifferent(comparedTo: vm.updatedItem) {
                 CTAButton(title: "Update") {
                     Task {
                         do {
-                            try await IM.shared.save(updatedItem)
+                            try await IM.shared.save(vm.updatedItem)
+                            vm.updateItem()
+                            vm.updateStatus()
                             didSaveUpdates = true
                         } catch {
                             saveItemError = true
-                            updatedItem = initialItem
+                            vm.updatedItem = initialItem
                         }
                     }
                 }
@@ -57,7 +54,7 @@ struct ItemDetailsView: View {
                 }
                 .alert("Success!", isPresented: $didSaveUpdates) {
                     Button("Dismiss", role: .cancel) {
-                        initialItem = updatedItem
+                        path.popToRoot()
                     }
                 } message: {
                     Text("Item changes updated successfully.")
@@ -66,14 +63,17 @@ struct ItemDetailsView: View {
         }
         .padding()
         .navigationTitle("Details")
+        .onAppear {
+            vm.initialItem = initialItem
+            vm.updatedItem = initialItem
+        }
         .onDisappear {
-            if didMakeChanges && !didSaveUpdates {
-                updatedItem = initialItem
-            }
+            vm.initialItem = Item.empty()
+            vm.updatedItem = Item.empty()
         }
     }
 }
 
 #Preview {
-    ItemDetailsView(item: .constant(Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium, lastUpdatedBy: "123456789")), initialValue: Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium, lastUpdatedBy: "123456789"))
+    ItemDetailsView(initialItem: Item(id: "abc123", authorId: "JohnDoe123", title: "Test item", description: "Test description", status: .todo, priority: .low, lastUpdatedBy: "JohnDoe123"), path: .constant([]))
 }
