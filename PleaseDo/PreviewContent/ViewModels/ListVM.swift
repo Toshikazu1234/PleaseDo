@@ -45,7 +45,7 @@ final class ListVM: ObservableObject {
     }
     
     func updateStatus() {
-        guard !initialItem.title.isEmpty, !updatedItem.title.isEmpty else { return }
+        guard !initialItem.isEmpty, !updatedItem.isEmpty else { return }
         if initialItem.status != updatedItem.status {
             remove(initialItem)
             append(updatedItem)
