@@ -83,17 +83,12 @@ final class ItemsManager {
                 }
             }
             guard isInitialFetch else { return }
-            sortBatchItems(from: snapshot.documents)
+            sortBatchItems()
             isInitialFetch = false
         }
     }
     
-    deinit {
-        listener?.remove()
-        listener = nil
-    }
-    
-    private func sortBatchItems(from docs: [QueryDocumentSnapshot]) {
+    private func sortBatchItems() {
         var sortedItems: [Status: [Item]] = [:]
         allItems.keys.forEach { status in
             sortedItems[status] = allItems[status]?.values.sorted(by: {
