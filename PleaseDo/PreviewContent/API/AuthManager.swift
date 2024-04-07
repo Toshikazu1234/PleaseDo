@@ -30,6 +30,35 @@ final class AuthManager {
         if let user = auth.currentUser {
             currentUser = user
         }
+        setupListener()
+    }
+    
+    deinit {
+        removeListener()
+    }
+    
+    func signIn(_ email: String, _ pw: String) {
+        auth.signIn(withEmail: email, password: pw) { [weak self] result, err in
+            guard let self, let result else { return }
+            currentUser = result.user
+            print("Successfully signed in user!")
+            setupListener()
+        }
+    }
+    
+    func signOut() {
+        do {
+            try auth.signOut()
+            currentUser = nil
+            removeListener()
+            print("Successfully signed out user!")
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func setupListener() {
+        guard handler == nil else { return }
         handler = auth.addStateDidChangeListener { [weak self] auth, user in
             guard let self else { return }
             if auth.currentUser == nil {
@@ -42,26 +71,9 @@ final class AuthManager {
         }
     }
     
-    deinit {
+    private func removeListener() {
         if let h = handler {
             auth.removeStateDidChangeListener(h)
-        }
-    }
-    
-    func signIn(_ email: String, _ pw: String) {
-        auth.signIn(withEmail: email, password: pw) { [weak self] result, err in
-            guard let self, let result else { return }
-            currentUser = result.user
-            print("Successfully signed in user!")
-        }
-    }
-    
-    func signOut() {
-        do {
-            try auth.signOut()
-            print("Successfully signed out user!")
-        } catch {
-            print(error)
         }
     }
     
