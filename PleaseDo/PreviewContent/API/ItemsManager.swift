@@ -39,7 +39,21 @@ final class ItemsManager {
     ]
     
     private init() {
+        fetchItems()
+    }
+    
+    deinit {
+        removeListener()
+    }
+    
+    private func removeListener() {
+        listener?.remove()
+        listener = nil
+    }
+    
+    func fetchItems() {
         guard let user = Auth.auth().currentUser else { return }
+        removeListener()
         listener = itemsCollection.whereField("authorId", isEqualTo: user.uid).addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching docs: \(err)")
