@@ -24,6 +24,12 @@ final class ListVM: ObservableObject {
         IM.shared.listDelegate = self
     }
     
+    func fetchItems() {
+        if todoItems.isEmpty && inProgressItems.isEmpty && doneItems.isEmpty {
+            IM.shared.fetchItems()
+        }
+    }
+    
     func updateItem() {
         guard !initialItem.isEmpty, !updatedItem.isEmpty, shouldUpdateItem else { return }
         switch updatedItem.status {
