@@ -29,7 +29,6 @@
 		50DE99242BB1123A006A091D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99232BB1123A006A091D /* Errors.swift */; };
 		50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99252BB118A5006A091D /* TitledTextField.swift */; };
 		50DE99282BB11B5D006A091D /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99272BB11B5D006A091D /* StatusMenu.swift */; };
-		50DE992A2BB12293006A091D /* StatusMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE99292BB12293006A091D /* StatusMenuRow.swift */; };
 		50DE992E2BB12580006A091D /* PriorityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE992D2BB12580006A091D /* PriorityMenu.swift */; };
 		50EA6D532BAC9D4A00BFD5CF /* PleaseDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */; };
 		50EA6D552BAC9D4A00BFD5CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D542BAC9D4A00BFD5CF /* ContentView.swift */; };
@@ -46,7 +45,6 @@
 		50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */; };
 		50EA6D8D2BACBDDC00BFD5CF /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */; };
 		50EA6D8F2BAD089600BFD5CF /* NavPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EA6D8E2BAD089600BFD5CF /* NavPath.swift */; };
-		50FB66D82BB3DDEA006DE0D0 /* PriorityMenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FB66D72BB3DDE9006DE0D0 /* PriorityMenuRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +84,6 @@
 		50DE99232BB1123A006A091D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		50DE99252BB118A5006A091D /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		50DE99272BB11B5D006A091D /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
-		50DE99292BB12293006A091D /* StatusMenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuRow.swift; sourceTree = "<group>"; };
 		50DE992D2BB12580006A091D /* PriorityMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityMenu.swift; sourceTree = "<group>"; };
 		50EA6D4F2BAC9D4A00BFD5CF /* PleaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PleaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA6D522BAC9D4A00BFD5CF /* PleaseDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseDoApp.swift; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		50EA6D8A2BACBDAD00BFD5CF /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		50EA6D8C2BACBDDC00BFD5CF /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		50EA6D8E2BAD089600BFD5CF /* NavPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavPath.swift; sourceTree = "<group>"; };
-		50FB66D72BB3DDE9006DE0D0 /* PriorityMenuRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityMenuRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				50DE99272BB11B5D006A091D /* StatusMenu.swift */,
-				50DE99292BB12293006A091D /* StatusMenuRow.swift */,
 				50DE992D2BB12580006A091D /* PriorityMenu.swift */,
-				50FB66D72BB3DDE9006DE0D0 /* PriorityMenuRow.swift */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -433,7 +427,6 @@
 				50DE99042BAF6353006A091D /* EmailTextField.swift in Sources */,
 				50DE990A2BAF675D006A091D /* LoginTitleView.swift in Sources */,
 				50DE990E2BAF6F72006A091D /* LoginFields.swift in Sources */,
-				50DE992A2BB12293006A091D /* StatusMenuRow.swift in Sources */,
 				50EA6D8B2BACBDAD00BFD5CF /* ItemDetailsView.swift in Sources */,
 				50DE99282BB11B5D006A091D /* StatusMenu.swift in Sources */,
 				50DE99122BAF7338006A091D /* TogglePromptView.swift in Sources */,
@@ -456,7 +449,6 @@
 				50EA6D832BACA16300BFD5CF /* Extensions.swift in Sources */,
 				501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */,
 				50EA6D8F2BAD089600BFD5CF /* NavPath.swift in Sources */,
-				50FB66D82BB3DDEA006DE0D0 /* PriorityMenuRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
