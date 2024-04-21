@@ -5,7 +5,7 @@
 //  Created by R K on 3/21/24.
 //
 
-import SwiftUI
+import Foundation
 import FirebaseFirestore
 
 struct Item: Identifiable, Equatable, Hashable {
@@ -24,10 +24,6 @@ struct Item: Identifiable, Equatable, Hashable {
     
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.id == rhs.id
-    }
-    
-    var isEmpty: Bool {
-        self == Item.empty()
     }
     
     enum DBKeys: String {
@@ -82,55 +78,5 @@ struct Item: Identifiable, Equatable, Hashable {
     
     static func empty() -> Item {
         return Item(id: "", authorId: "", title: "", description: "", status: .todo, priority: .low, lastUpdatedBy: "")
-    }
-}
-
-enum Status: String, CaseIterable {
-    case todo = "To Do"
-    case inProgress = "In Progress"
-    case done = "Done"
-    case unknown = "Unknown"
-    
-    init(_ str: String) {
-        self = switch str.lowercased() {
-        case "to do": .todo
-        case "in progress": .inProgress
-        case "done": .done
-        default: .unknown
-        }
-    }
-}
-
-enum Priority: String, CaseIterable {
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
-    case unknown = "Unknown"
-    
-    init(_ str: String) {
-        self = switch str.lowercased() {
-        case "low": .low
-        case "medium": .medium
-        case "high": .high
-        default: .unknown
-        }
-    }
-    
-    var color: Color {
-        return switch self {
-        case .low: .blue
-        case .medium: .orange
-        case .high: .red
-        case .unknown: .gray
-        }
-    }
-    
-    var img: String {
-        return switch self {
-        case .low: "circle"
-        case .medium: "triangle"
-        case .high: "exclamationmark.circle"
-        case .unknown: ""
-        }
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		501023132BB349BF003CCAE8 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501023122BB349BF003CCAE8 /* CTAButton.swift */; };
+		508E793D2BD5769700C803B1 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E793C2BD5769700C803B1 /* Status.swift */; };
+		508E793F2BD576B400C803B1 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E793E2BD576B400C803B1 /* Priority.swift */; };
 		50B861C42BAD38B500CE00D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C32BAD38B500CE00D9 /* HomeView.swift */; };
 		50B861C62BAD393800CE00D9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C52BAD393800CE00D9 /* LoginVM.swift */; };
 		50B861CA2BAD3B3B00CE00D9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B861C92BAD3B3B00CE00D9 /* LoginView.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		501023122BB349BF003CCAE8 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
+		508E793C2BD5769700C803B1 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		508E793E2BD576B400C803B1 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		50B861C32BAD38B500CE00D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		50B861C52BAD393800CE00D9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		50B861C92BAD3B3B00CE00D9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				50EA6D842BACA6EC00BFD5CF /* Item.swift */,
+				508E793C2BD5769700C803B1 /* Status.swift */,
+				508E793E2BD576B400C803B1 /* Priority.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,6 +437,8 @@
 				50DE99282BB11B5D006A091D /* StatusMenu.swift in Sources */,
 				50DE99122BAF7338006A091D /* TogglePromptView.swift in Sources */,
 				50DE99262BB118A5006A091D /* TitledTextField.swift in Sources */,
+				508E793D2BD5769700C803B1 /* Status.swift in Sources */,
+				508E793F2BD576B400C803B1 /* Priority.swift in Sources */,
 				50DE99102BAF7111006A091D /* SignUpFields.swift in Sources */,
 				50EA6D852BACA6EC00BFD5CF /* Item.swift in Sources */,
 				50EA6D892BACAD2C00BFD5CF /* ListVM.swift in Sources */,
