@@ -38,8 +38,6 @@ struct ItemDetailsView: View {
                     Task {
                         do {
                             try await IM.shared.save(vm.updatedItem)
-                            vm.updateItem()
-                            vm.updateStatus()
                             didSaveUpdates = true
                         } catch {
                             saveItemError = true

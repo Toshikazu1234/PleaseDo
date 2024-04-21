@@ -72,13 +72,8 @@ final class ItemsManager {
                         listDelegate?.didAddItem(item)
                     }
                 case .modified:
-                    /// We don't need to update the item if the update was made by
-                    /// the current user because our `ListVM` bindable properties
-                    /// should already have local updates.
-                    guard user.uid != item.lastUpdatedBy else { return }
                     listDelegate?.didUpdateItem(item)
                 case .removed:
-                    guard user.uid != item.lastUpdatedBy else { return }
                     listDelegate?.didDeleteItem(item)
                 }
             }

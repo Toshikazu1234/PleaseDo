@@ -16,6 +16,8 @@ final class ListVM: ObservableObject {
     @Published var initialItem = Item.empty()
     @Published var updatedItem = Item.empty()
     
+    @Published var shouldReDraw = false
+    
     private var shouldUpdateItem: Bool {
         return initialItem.isDifferent(comparedTo: updatedItem)
     }
@@ -27,68 +29,6 @@ final class ListVM: ObservableObject {
     func fetchItems() {
         if todoItems.isEmpty && inProgressItems.isEmpty && doneItems.isEmpty {
             IM.shared.fetchItems()
-        }
-    }
-    
-    func updateItem() {
-        guard !initialItem.isEmpty, !updatedItem.isEmpty, shouldUpdateItem else { return }
-        switch updatedItem.status {
-        case .todo:
-            if let i = todoItems.firstIndex(of: updatedItem) {
-                todoItems[i] = updatedItem
-            }
-        case .inProgress:
-            if let i = inProgressItems.firstIndex(of: updatedItem) {
-                inProgressItems[i] = updatedItem
-            }
-        case .done:
-            if let i = doneItems.firstIndex(of: updatedItem) {
-                doneItems[i] = updatedItem
-            }
-        case .unknown:
-            if let i = unknownItems.firstIndex(of: updatedItem) {
-                unknownItems[i] = updatedItem
-            }
-        }
-    }
-    
-    func updateStatus() {
-        guard !initialItem.isEmpty, !updatedItem.isEmpty, shouldUpdateItem else { return }
-        remove(initialItem)
-        append(updatedItem)
-    }
-    
-    private func remove(_ item: Item) {
-        switch item.status {
-        case .todo:
-            if let i = todoItems.firstIndex(of: item) {
-                todoItems.remove(at: i)
-            }
-        case .inProgress:
-            if let i = inProgressItems.firstIndex(of: item) {
-                inProgressItems.remove(at: i)
-            }
-        case .done:
-            if let i = doneItems.firstIndex(of: item) {
-                doneItems.remove(at: i)
-            }
-        case .unknown:
-            if let i = unknownItems.firstIndex(of: item) {
-                unknownItems.remove(at: i)
-            }
-        }
-    }
-    
-    private func append(_ item: Item) {
-        switch item.status {
-        case .todo:
-            todoItems.append(item)
-        case .inProgress:
-            inProgressItems.append(item)
-        case .done:
-            doneItems.append(item)
-        case .unknown:
-            unknownItems.append(item)
         }
     }
 }
@@ -155,6 +95,7 @@ extension ListVM: ItemsManagerListDelegate {
             } else {
                 unknownItems.append(item)
             }
+            shouldReDraw.toggle()
         }
     }
     
