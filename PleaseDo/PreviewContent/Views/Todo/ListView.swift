@@ -10,7 +10,6 @@ import SwiftUI
 struct ListView: View {
     let status: Status
     @Binding var items: [Item]
-    @Binding var path: [NavPath]
     private let titleRadius: CGFloat = 10
     
     var body: some View {
@@ -49,6 +48,6 @@ struct ListView: View {
         ListView(status: .todo, items: .constant([
             Item(id: "abc123", authorId: "123456789", title: "Take A Break", description: "Make sure to take a break and rest your eyes", status: .todo, priority: .medium, lastUpdatedBy: "123456789"),
             Item(id: "123abc", authorId: "123456789", title: "Have A Snack", description: "Small snacks throughout the day are a great way to increase blood sugar for people with hypoglycemia", status: .todo, priority: .low, lastUpdatedBy: "123456789")
-        ]), path: .constant([]))
+        ]))
     }
 }
